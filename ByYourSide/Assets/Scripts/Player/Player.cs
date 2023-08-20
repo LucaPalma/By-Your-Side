@@ -6,17 +6,18 @@ public class Player : MonoBehaviour
 {
     //References
     public Rigidbody rb;
-
+    Pet pet;
 
     [Header("Movement Stats")]
     public float moveSpeed;
     float intentionX;
     float intentionY;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        pet = FindObjectOfType<Pet>();
     }
 
     void Update()
@@ -36,7 +37,12 @@ public class Player : MonoBehaviour
 
     public void handleMovement()
     {
-        rb.velocity = new Vector3 ((moveSpeed * Time.deltaTime * 100) * intentionX, rb.velocity.y, (moveSpeed * Time.deltaTime * 100) * intentionY);
+        //Update playres velocity based on intention.
+        var newVel = new Vector3((moveSpeed * Time.deltaTime * 100) * intentionX, rb.velocity.y, (moveSpeed * Time.deltaTime * 100) * intentionY);
+        rb.velocity = newVel;
+        pet.rb.velocity = newVel;
+
 
     }
+
 }
