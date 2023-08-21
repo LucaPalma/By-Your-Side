@@ -11,14 +11,29 @@ public class Pet : MonoBehaviour
     public Rigidbody rb;
     MainCam cam;
 
-    //Variables needed for mouse
+    //Variables needed for mouse position detection
     public Vector3 worldPosition;
     Plane plane = new Plane(Vector3.up, 0);
+
+    //Input detection bools
+    bool wantToShoot;//Main attack
+    bool wantToStrong;//Stronger Secondary
+    bool wantToBuff; //Buff Main Adventurer
 
     [Header("Movement Stats")]
     public float moveSpeed;
     public float floatDist;//How far from the main player the pet can stray.
     Vector3 targetPos;
+
+    [Header("Cooldowns")]
+    public float mainAttackMaxCD;
+    float mainAttackCurrentCD = 0;
+
+    public float strongAttackMaxCD;
+    float strongAttackCurrentCD = 0;
+
+    public float buffAttackMaxCD;
+    float buffAttackCurrentCD = 0;
 
 
     private void Start()
@@ -31,8 +46,28 @@ public class Pet : MonoBehaviour
     
     private void Update()
     {
-        getMousePosition();
+        getMousePosition(); //Assigns mouse to worldPosition variable.
+        getInput();
         handlePosition();
+        handleAttacks();
+    }
+
+    public void getInput()
+    {
+        if (Input.GetMouseButton(0)) //Can hold instead of press M1
+        {
+            wantToShoot = true;
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            wantToStrong = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Keypad7))
+        {
+            wantToBuff = true;
+        }
     }
 
     public void handlePosition()
@@ -50,10 +85,54 @@ public class Pet : MonoBehaviour
         {
             rb.position = Vector3.MoveTowards(rb.position, targetPos, moveSpeed * Time.deltaTime); //Move this from current position to target position.
         }
+    }
+
+    public void handleAttacks()
+    {
+        if(wantToShoot && mainAttackCurrentCD <= 0)
+        {
+            mainAttack();
+            wantToShoot = false;
+            mainAttackCurrentCD = mainAttackMaxCD;
+        }
+
+        if(wantToStrong && strongAttackCurrentCD <= 0)
+        {
+            strongAttack();
+            wantToStrong=false;
+            strongAttackCurrentCD = strongAttackMaxCD;
+        }
+
+        if(wantToBuff && buffAttackCurrentCD <= 0)
+        {
+            buffAttack();
+            wantToBuff = false;
+            buffAttackCurrentCD = buffAttackMaxCD;
+        }
+
+        //Cooldown Updates
+        mainAttackCurrentCD -= Time.deltaTime;
+        strongAttackCurrentCD -= Time.deltaTime;
+        //Reset Triggers
+        wantToShoot = false;
+        wantToStrong = false;
+
+    }
+     
+    public virtual void mainAttack()
+    {
+        //Each pet will implement this uniquely.
+    }
 
 
+    public virtual void strongAttack()
+    {
+        //Each pet will implement this uniquely.
+    }
 
-
+    public virtual void buffAttack()
+    {
+        //Each pet will implement this uniquely.
     }
 
     public void getMousePosition()
