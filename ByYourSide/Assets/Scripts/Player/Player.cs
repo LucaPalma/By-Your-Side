@@ -23,11 +23,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         handleInput();
-        handleMovement();
-
-
     }
-
+    private void FixedUpdate()
+    {
+        handleMovement();
+    }
     public void handleInput()
     {
         intentionX = Input.GetAxis("Horizontal"); //A and D scale from -1 to 1
@@ -37,8 +37,8 @@ public class Player : MonoBehaviour
 
     public void handleMovement()
     {
-        //Update playres velocity based on intention.
-        var newVel = new Vector3((moveSpeed * Time.deltaTime * 100) * intentionX, rb.velocity.y, (moveSpeed * Time.deltaTime * 100) * intentionY);
+        //Update players velocity based on intention.
+        var newVel = new Vector3((moveSpeed) * intentionX, rb.velocity.y, (moveSpeed) * intentionY);
         rb.velocity = newVel;
         pet.rb.velocity = newVel;
     }
