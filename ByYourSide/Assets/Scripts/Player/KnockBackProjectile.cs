@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class  KnockBackProjectile : MonoBehaviour
+{
+    [Header("Projectile Variables")]
+    public float lifeTime;
+    public float damage;
+    public float knockBack;
+    public float speed;
+    public string target;
+    public Vector3 knockBackDir;
+
+    public void Update()
+    {
+        //Destroy projectiles that fly off screen
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        var rb = this.GetComponent<Rigidbody>();
+        rb.velocity = rb.velocity.normalized * speed; //Continue in current direction.
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == target || collision.gameObject.layer == 8)
+        {
+            if (collision.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                var knockable = collision.gameObject.GetComponent<Rigidbody>();
+
+                knockable.velocity = knockBackDir*knockBack;
+
+            }           
+        }
+    }
+
+}

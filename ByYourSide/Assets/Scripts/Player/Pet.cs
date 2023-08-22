@@ -6,16 +6,17 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Pet : MonoBehaviour
 {
-    //References
-    Player player;
+    [Header("References")]
+    public Player player;
     public Rigidbody rb;
     MainCam cam;
 
+    [Header("Mouse Calc Variables")]
     //Variables needed for mouse position detection
     public Vector3 worldPosition;
     Plane plane = new Plane(Vector3.up, 0);
 
-    //Input detection bools
+    [Header("Input Desire Variables")]
     bool wantToShoot;//Main attack
     bool wantToStrong;//Stronger Secondary
     bool wantToBuff; //Buff Main Adventurer
@@ -28,13 +29,18 @@ public class Pet : MonoBehaviour
     [Header("Cooldowns")]
     public float mainAttackMaxCD;
     float mainAttackCurrentCD = 0;
+    public GameObject mainAttackGuiObj;
+    private cooldownTimer mainAttackGui;
 
     public float strongAttackMaxCD;
     float strongAttackCurrentCD = 0;
+    public GameObject strongAttackGuiObj;
+    private cooldownTimer strongAttackGui;
 
     public float buffAttackMaxCD;
     float buffAttackCurrentCD = 0;
-
+    public GameObject buffAttackGuiObj;
+    private cooldownTimer buffAttackGui;
 
     private void Start()
     {
@@ -42,9 +48,24 @@ public class Pet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         cam = GetComponent<MainCam>();
 
+
+        //Find Gui
+        mainAttackGui = mainAttackGuiObj.GetComponent<cooldownTimer>();
+        strongAttackGui = strongAttackGuiObj.GetComponent<cooldownTimer>();
+        buffAttackGui = buffAttackGuiObj.GetComponent<cooldownTimer>();
+
+        //Set Gui Element Values
+        mainAttackGui.SetMaxHealth(mainAttackMaxCD);
+        mainAttackGui.SetHealth(0);
+
+        strongAttackGui.SetMaxHealth(strongAttackMaxCD);
+        strongAttackGui.SetHealth(0);
+
+        buffAttackGui.SetMaxHealth(buffAttackMaxCD);
+        buffAttackGui.SetHealth(0);
     }
     
-    private void Update()
+    public virtual void Update()
     {
         getMousePosition(); //Assigns mouse to worldPosition variable.
         getInput();
@@ -64,7 +85,7 @@ public class Pet : MonoBehaviour
             wantToStrong = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Keypad7))
+        if(Input.GetMouseButtonDown(2))
         {
             wantToBuff = true;
         }
@@ -112,10 +133,21 @@ public class Pet : MonoBehaviour
 
         //Cooldown Updates
         mainAttackCurrentCD -= Time.deltaTime;
+        if (mainAttackCurrentCD <= 0) mainAttackGui.SetHealth(0);
+        else mainAttackGui.SetHealth(mainAttackCurrentCD);
+
         strongAttackCurrentCD -= Time.deltaTime;
+        if (strongAttackCurrentCD <= 0) strongAttackGui.SetHealth(0);
+        else strongAttackGui.SetHealth(strongAttackCurrentCD);
+
+        buffAttackCurrentCD -= Time.deltaTime;
+        if (buffAttackCurrentCD <= 0) buffAttackGui.SetHealth(0);
+        else buffAttackGui.SetHealth(buffAttackCurrentCD);
+
         //Reset Triggers
         wantToShoot = false;
         wantToStrong = false;
+        wantToBuff = false;
 
     }
      

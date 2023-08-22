@@ -41,8 +41,6 @@ public class Player : MonoBehaviour
         var newVel = new Vector3((moveSpeed * Time.deltaTime * 100) * intentionX, rb.velocity.y, (moveSpeed * Time.deltaTime * 100) * intentionY);
         rb.velocity = newVel;
         pet.rb.velocity = newVel;
-
-
     }
 
 }
