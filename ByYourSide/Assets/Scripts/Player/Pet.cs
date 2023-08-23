@@ -21,6 +21,10 @@ public class Pet : MonoBehaviour
     bool wantToStrong;//Stronger Secondary
     bool wantToBuff; //Buff Main Adventurer
 
+    bool wantToFour;//4th Ability
+    bool wantToFive;//5th Ability
+    bool wantToUlt;//Ult Ability
+
     [Header("Movement Stats")]
     public float moveSpeed;
     public float floatDist;//How far from the main player the pet can stray.
@@ -42,6 +46,21 @@ public class Pet : MonoBehaviour
     public GameObject buffAttackGuiObj;
     private cooldownTimer buffAttackGui;
 
+    public float fourAttackMaxCD;
+    float fourAttackCurrentCD = 0;
+    public GameObject fourAttackGuiObj;
+    private cooldownTimer fourAttackGui;
+
+    public float fiveAttackMaxCD;
+    float fiveAttackCurrentCD = 0;
+    public GameObject fiveAttackGuiObj;
+    private cooldownTimer fiveAttackGui;
+
+    public float ultAttackMaxCD;
+    float ultAttackCurrentCD = 0;
+    public GameObject ultAttackGuiObj;
+    private cooldownTimer ultAttackGui;
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -54,6 +73,10 @@ public class Pet : MonoBehaviour
         strongAttackGui = strongAttackGuiObj.GetComponent<cooldownTimer>();
         buffAttackGui = buffAttackGuiObj.GetComponent<cooldownTimer>();
 
+        fourAttackGui = fourAttackGuiObj.GetComponent<cooldownTimer>();
+        fiveAttackGui = fiveAttackGuiObj.GetComponent<cooldownTimer>();
+        ultAttackGui = ultAttackGuiObj.GetComponent<cooldownTimer>();
+
         //Set Gui Element Values
         mainAttackGui.SetMaxHealth(mainAttackMaxCD);
         mainAttackGui.SetHealth(0);
@@ -63,6 +86,15 @@ public class Pet : MonoBehaviour
 
         buffAttackGui.SetMaxHealth(buffAttackMaxCD);
         buffAttackGui.SetHealth(0);
+
+        fourAttackGui.SetMaxHealth(fourAttackMaxCD);
+        fourAttackGui.SetHealth(0);
+
+        fiveAttackGui.SetMaxHealth(fiveAttackMaxCD);
+        fiveAttackGui.SetHealth(0);
+
+        ultAttackGui.SetMaxHealth(ultAttackMaxCD);
+        ultAttackGui.SetHealth(0);
     }
     
     public virtual void Update()
@@ -80,14 +112,29 @@ public class Pet : MonoBehaviour
             wantToShoot = true;
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Keypad8))
         {
             wantToStrong = true;
         }
 
-        if(Input.GetMouseButtonDown(2))
+        if (Input.GetKeyDown(KeyCode.Keypad9))
         {
             wantToBuff = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            wantToFour = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            wantToFive = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            wantToUlt = true;
         }
     }
 
@@ -131,6 +178,27 @@ public class Pet : MonoBehaviour
             buffAttackCurrentCD = buffAttackMaxCD;
         }
 
+        if (wantToFour && fourAttackCurrentCD <= 0)
+        {
+            fourAttack();
+            wantToFour = false;
+            fourAttackCurrentCD = fourAttackMaxCD;
+        }
+
+        if (wantToFive && fiveAttackCurrentCD <= 0)
+        {
+            fiveAttack();
+            wantToFour = false;
+            fiveAttackCurrentCD = fiveAttackMaxCD;
+        }
+
+        if (wantToUlt && ultAttackCurrentCD <= 0)
+        {
+            ultAttack();
+            wantToUlt = false;
+            ultAttackCurrentCD = ultAttackMaxCD;
+        }
+
         //Cooldown Updates
         mainAttackCurrentCD -= Time.deltaTime;
         if (mainAttackCurrentCD <= 0) mainAttackGui.SetHealth(0);
@@ -144,10 +212,24 @@ public class Pet : MonoBehaviour
         if (buffAttackCurrentCD <= 0) buffAttackGui.SetHealth(0);
         else buffAttackGui.SetHealth(buffAttackCurrentCD);
 
+        fourAttackCurrentCD -= Time.deltaTime;
+        if (fourAttackCurrentCD <= 0) fourAttackGui.SetHealth(0);
+        else fourAttackGui.SetHealth(fourAttackCurrentCD);
+
+        fiveAttackCurrentCD -= Time.deltaTime;
+        if (fiveAttackCurrentCD <= 0) fiveAttackGui.SetHealth(0);
+        else fiveAttackGui.SetHealth(fiveAttackCurrentCD);
+
+        ultAttackCurrentCD -= Time.deltaTime;
+        if (ultAttackCurrentCD <= 0) ultAttackGui.SetHealth(0);
+        else ultAttackGui.SetHealth(ultAttackCurrentCD);
         //Reset Triggers
         wantToShoot = false;
         wantToStrong = false;
         wantToBuff = false;
+        wantToFour = false;
+        wantToFive = false;
+        wantToUlt = false;
 
     }
      
@@ -163,6 +245,21 @@ public class Pet : MonoBehaviour
     }
 
     public virtual void buffAttack()
+    {
+        //Each pet will implement this uniquely.
+    }
+
+    public virtual void fourAttack()
+    {
+        //Each pet will implement this uniquely.
+    }
+
+    public virtual void fiveAttack()
+    {
+        //Each pet will implement this uniquely.
+    }
+
+    public virtual void ultAttack()
     {
         //Each pet will implement this uniquely.
     }

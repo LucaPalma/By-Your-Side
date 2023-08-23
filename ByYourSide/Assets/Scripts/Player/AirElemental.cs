@@ -78,5 +78,19 @@ public class AirElemental : Pet
         speedy = true;
     }
 
+    public override void fourAttack()
+    {
+        //
+    }
+
+    public override void fiveAttack()
+    {
+        //
+    }
+
+    public override void ultAttack()
+    {
+        //
+    }
 
 }
