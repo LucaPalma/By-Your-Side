@@ -11,6 +11,7 @@ public class  KnockBackProjectile : MonoBehaviour
     public float speed;
     public string target;
     public Vector3 knockBackDir;
+    public bool radialKnockback; //Knock away from center of projectile instead of passing direction.
 
     public void Update()
     {
@@ -36,7 +37,15 @@ public class  KnockBackProjectile : MonoBehaviour
             {
                 var knockable = collision.gameObject.GetComponent<Rigidbody>();
 
-                knockable.velocity = knockBackDir*knockBack;
+                if (!radialKnockback)
+                {
+                    knockable.velocity = knockBackDir * knockBack;
+                }
+                else
+                {
+                    knockable.velocity = (knockable.position - this.transform.position) * knockBack;
+                }
+
 
             }           
         }
