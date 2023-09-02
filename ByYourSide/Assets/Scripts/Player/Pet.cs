@@ -132,7 +132,7 @@ public class Pet : MonoBehaviour
             wantToFive = true;
         }
 
-        if (Input.GetKey(KeyCode.KeypadEnter) && Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.CapsLock) && Input.GetKey(KeyCode.RightShift))
         {
             wantToUlt = true;
         }

@@ -31,7 +31,7 @@ public class  KnockBackProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == target || collision.gameObject.layer == 8)
+        if (collision.tag == target || collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             if (collision.gameObject.GetComponent<Rigidbody>() != null)
             {
@@ -45,9 +45,12 @@ public class  KnockBackProjectile : MonoBehaviour
                 {
                     knockable.velocity = (knockable.position - this.transform.position) * knockBack;
                 }
-
-
             }           
+        }
+        //Destroy enemy projectiles that are targeting the player.
+        if (collision.tag == "Projectile")
+        {
+            if (collision.GetComponent<BasicProjectile>().target == "Player") Destroy(collision.gameObject);
         }
     }
 

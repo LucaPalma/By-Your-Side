@@ -11,6 +11,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public GameObject healthBarObj;
     cooldownTimer healthBar;
     Pet pet;
+    public Vector3 currentCheckpoint;
 
 
     //Input Bools
@@ -30,7 +31,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public string currentPet = "Air";
 
     public float damageInvulnTimerMax;
-    float damageInvulnTimer; //Invuln from taking damage.
+    public float damageInvulnTimer; //Invuln from taking damage.
 
     [Header("Air Combo Stats")]
     public KnockBackProjectile windProj;
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public GameObject comboGuiObj;
     private cooldownTimer comboGui;
     public float dodgeMaxCD;
-    float dodgeCurrentCD;
+    public float dodgeCurrentCD;
     public GameObject dodgeGuiObj;
     private cooldownTimer dodgeGui;
 
@@ -53,11 +54,13 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public float dodgeSpeed;
     public float dodgeDuration;
     float currentdodgeDuration;
-    bool dashInvuln;//Active while player is buffed.
+    public bool dashInvuln;//Active while player is buffed.
+ 
 
 
     private void Start()
     {
+        currentCheckpoint = this.transform.position; //Update first checkpoint to be spawn location
         rb = GetComponent<Rigidbody>();
         pet = FindObjectOfType<Pet>();
 
@@ -88,12 +91,23 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         if (currentdodgeDuration <= 0 && dashInvuln)
         {
             dashInvuln = false;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             this.GetComponent<MeshRenderer>().material = normalColour;
         }
 
         //Invuln updating
         damageInvulnTimer -= Time.deltaTime;
         if (damageInvulnTimer <= 0) damageInvulnTimer = 0;
+
+        //Ensure player cannot fly up vertically.
+        if (rb.velocity.y > 0) { rb.velocity = new Vector3(rb.velocity.x,0,rb.velocity.z); }
+
+        //Set player back to checkpoint if they fall off.
+        if (this.transform.position.y < -10)
+        {
+            Debug.Log("called respawn");
+            rb.position = currentCheckpoint;
+        }
 
     }
     private void FixedUpdate()
@@ -159,6 +173,8 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
 
         currentdodgeDuration = dodgeDuration;
         dashInvuln = true;
+        //Allow player to dodge over gaps
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
     }
 
@@ -198,8 +214,6 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         {
             this.GetComponent<MeshRenderer>().material = normalColour;
         }
-
-
     }
 
     public void handleMovement()

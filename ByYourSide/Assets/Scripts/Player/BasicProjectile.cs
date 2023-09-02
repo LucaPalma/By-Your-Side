@@ -7,6 +7,7 @@ public class BasicProjectile : MonoBehaviour
     [Header("Projectile Variables")]
     public float lifeTime;
     public float damage;
+    public float knockback;
     public float speed;
     public string target;
 
@@ -30,12 +31,33 @@ public class BasicProjectile : MonoBehaviour
     {
         if (collision.tag == target)
         {
+            if (collision.gameObject.GetComponent<iKnockBackable>() != null)
+            {
+                var damageable = collision.gameObject.GetComponent<iKnockBackable>();
+                damageable.handleKnockBack(knockback, this.transform.position);
+            }
             if (collision.gameObject.GetComponent<iDamageable>() != null)
             {
                 var damageable = collision.gameObject.GetComponent<iDamageable>();
                 damageable.handleDamage(damage);
+            }
+
+            //Don't destroy projectiles while dodging.
+            var p = collision.gameObject.GetComponent<Player>();
+            if (collision.gameObject.tag == "Player")
+            {
+
+                if (!(p.dashInvuln || p.damageInvulnTimer > 0))
+                {
+                    Destroy(this.gameObject);
+                }          
+            }
+            else
+            {
                 Destroy(this.gameObject);
-            }           
+            }
+
+
         }
         else if (collision.gameObject.layer == 8) //8 Is terrain layer.
         {

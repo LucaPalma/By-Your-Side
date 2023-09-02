@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 6407694986404035898}
   - component: {fileID: 2996366363924823644}
   - component: {fileID: 5066692240045487836}
-  - component: {fileID: 4175533881931116515}
   - component: {fileID: 4469539581591945751}
   - component: {fileID: 3822984658613119686}
-  m_Layer: 0
+  - component: {fileID: 4269339489292734012}
+  - component: {fileID: 2339466553534648863}
+  m_Layer: 7
   m_Name: Adventurer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3e80d4dd9b4070c40815175cd855c841, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,27 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4175533881931116515
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6832392871631242854}
-  m_Material: {fileID: 13400000, guid: eb035a6f7fc21df4db58dfc760ed3db3, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4469539581591945751
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,7 +112,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &3822984658613119686
 MonoBehaviour:
@@ -147,4 +127,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  normalColour: {fileID: 2100000, guid: 3e80d4dd9b4070c40815175cd855c841, type: 2}
+  dodgeColour: {fileID: 2100000, guid: 4d1f4bc3c8e89d848b694d75d91df3a1, type: 2}
+  healthBarObj: {fileID: 0}
   moveSpeed: 10
+  maxHealth: 10
+  currentHealth: 10
+  currentPet: Air
+  damageInvulnTimerMax: 0.5
+  windProj: {fileID: 3940677728651586465, guid: 6b203c5c39ed3a74ead6e1d512be3e0d, type: 3}
+  windLifeTime: 0.5
+  windDamage: 0
+  knockbackAmt: 9
+  windSpeed: 0
+  comboMaxCD: 7
+  comboGuiObj: {fileID: 0}
+  dodgeMaxCD: 4
+  dodgeGuiObj: {fileID: 0}
+  dodgeSpeed: 40
+  dodgeDuration: 0.25
+--- !u!114 &4269339489292734012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832392871631242854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!136 &2339466553534648863
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832392871631242854}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 0.99999994
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

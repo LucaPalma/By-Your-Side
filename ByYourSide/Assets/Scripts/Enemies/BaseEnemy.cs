@@ -46,6 +46,7 @@ public class BaseEnemy : MonoBehaviour
         //Update the player's position as they move
         GetPlayerLocation();
         //Determine whether the enemy can see the player
+
         CanSeePlayer();
         // If the enemy has not seen the player yet remain inactive
         if (!seenPlayer) return;
@@ -75,6 +76,7 @@ public class BaseEnemy : MonoBehaviour
 
     public void CanSeePlayer()
     {
+
         //RaycastHit2D hitObject = Physics2D.Raycast(transform.position, directionToPlayer.normalized, directionToPlayer.magnitude, barrierLayer);
 
         var ray = new Ray(transform.position, directionToPlayer);

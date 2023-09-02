@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3940677728651586465}
   - component: {fileID: -8294821250977692772}
   - component: {fileID: 2841209568840617490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: windCombo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
