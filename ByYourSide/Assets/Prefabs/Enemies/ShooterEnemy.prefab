@@ -155,7 +155,7 @@ MonoBehaviour:
   shootDistance: 12
   slowDistance: 10
   proj: {fileID: 3236174623819675649, guid: d557e7b7aeecc164b8903ec7375909ac, type: 3}
-  projectileLifeTime: 5
+  projectileLifeTime: 3
   projectileDamage: 4
   projectileSpeed: 10
   projectileKnockback: 0

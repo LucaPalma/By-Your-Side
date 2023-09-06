@@ -17,8 +17,6 @@ public class MeleeEnemy : BaseEnemy
     //[SerializeField] private string deathName;
 	//private AudioSource deathSound;
 
-    //private NavMeshAgent agent;
-
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
