@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 4587779455514765942}
   - component: {fileID: 2047581650575830059}
   - component: {fileID: 8934952008666610430}
-  - component: {fileID: 3563221218776950365}
+  - component: {fileID: -4872434559008968486}
   - component: {fileID: 3449346778884855784}
   - component: {fileID: 3825261703521345263}
   - component: {fileID: 5195601882353814558}
   m_Layer: 0
-  m_Name: BaseEnemy
+  m_Name: ShooterEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3563221218776950365
+--- !u!114 &-4872434559008968486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,15 +141,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2984688881901170347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af38254706ae28c4d8feed2569755cf4, type: 3}
+  m_Script: {fileID: 11500000, guid: 89e44b92d87ad6b4fa26127b9f957226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 1
   canMove: 1
+  fireRate: 2
   persueDistance: 17.5
   barrierLayer:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 128
+  projectileSpeed: 10
+  entity: {fileID: 4157797558086329849}
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0

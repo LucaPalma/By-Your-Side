@@ -7,14 +7,17 @@ using System.Linq;
 
 public class SceneManager : MonoBehaviour
 {
-     NavMeshSurface[] surface;
+    NavMeshSurface[] surface;
+    public NavMeshSurface surfaceSingle;
 
     //public Transform objectToRotate;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
         surface = FindObjectsOfType<NavMeshSurface>();
+        UpdatePath();
+        InvokeRepeating("UpdatePath", 0f, 0.5f);
+        
     }
 
     // Update is called once per frame
@@ -26,10 +29,11 @@ public class SceneManager : MonoBehaviour
 
     public void UpdatePath()
     {
-        foreach (NavMeshSurface n in surface)
-        {
-            n.BuildNavMesh();
-        }
+        surfaceSingle.BuildNavMesh();
+        //foreach (NavMeshSurface n in surface)
+        //{
+        //    n.BuildNavMesh();
+        //}
 
     }
 }

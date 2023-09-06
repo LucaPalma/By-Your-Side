@@ -14,30 +14,31 @@ public class BaseEnemy : MonoBehaviour
     protected Vector2 playerPosition2D;
     protected Vector3 directionToPlayer;
     protected Vector3 lastSeenPosition;
+    protected float rayLength;
 
     //Object States Declaration
     protected bool playerInLOS = false;
-    protected bool seenPlayer = false;
+    protected bool seenPlayer = false; //If enemy has seen player at any point
     public bool canAttack = true;
     public bool canMove = true;
 
     //Enemy Values
-    //[SerializeField] protected float fireRate;
-    //[SerializeField] protected float moveSpeed;
+    [SerializeField] protected float fireRate = 2.0f;
+    protected float moveSpeed;
+    [SerializeField] private float persueDistance = 17.5f;
 
     [SerializeField] private LayerMask barrierLayer;
 
     private NavMeshAgent agent;
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        moveSpeed = agent.speed;
 
         lastSeenPosition = transform.position;
-        
-        //InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
 
     // Update is called once per frame
@@ -76,17 +77,26 @@ public class BaseEnemy : MonoBehaviour
 
     public void CanSeePlayer()
     {
+        
 
         //RaycastHit2D hitObject = Physics2D.Raycast(transform.position, directionToPlayer.normalized, directionToPlayer.magnitude, barrierLayer);
 
         var ray = new Ray(transform.position, directionToPlayer);
         RaycastHit hit;
-        Debug.DrawRay(transform.position, directionToPlayer, Color.red);
-        if (Physics.Raycast(ray, out hit, directionToPlayer.magnitude, barrierLayer) && !(hit.transform.gameObject.layer == 9))
-        {
-            seenPlayer = true;
-            lastSeenPosition = playerPosition;
+        rayLength = directionToPlayer.magnitude;
+        if (rayLength > persueDistance) //If the player leaves the persue distance, the enemies will go to the place the player was last
+        {                               //seen that was inside the persue distance
+            rayLength = persueDistance;
         }
+        Debug.DrawRay(transform.position, directionToPlayer, Color.red);
+        if (Physics.Raycast(ray, out hit, rayLength, barrierLayer) && !(hit.transform.gameObject.layer == 9 ))
+            {
+                seenPlayer = true;
+                playerInLOS = true;
+                lastSeenPosition = playerPosition;
+            }
+        else {playerInLOS = false;}
+        
 
         //RaycastHit hitObject = Physics.Raycast(transform.position, directionToPlayer.normalized, directionToPlayer.magnitude, barrierLayer);
 
