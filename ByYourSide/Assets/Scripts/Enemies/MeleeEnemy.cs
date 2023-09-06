@@ -8,7 +8,6 @@ public class MeleeEnemy : BaseEnemy
     [SerializeField] private float minDistToPlayer = 0f;
     [SerializeField] protected float dmg = 3;
     [SerializeField] private float pwr = 5;
-    private NavMeshAgent agent;
 
     //protected iFrameHealth plrHealth;
     //public GameObject hurtBox;
@@ -17,6 +16,8 @@ public class MeleeEnemy : BaseEnemy
 	//private AudioSource abilitySound;
     //[SerializeField] private string deathName;
 	//private AudioSource deathSound;
+
+    //private NavMeshAgent agent;
 
     private void Awake()
     {
@@ -68,7 +69,7 @@ public class MeleeEnemy : BaseEnemy
         //abilitySound.Play();
         //yield return new WaitForSeconds(fireRate / 2);
         //canMove = true;
-        yield return new WaitForSeconds(fireRate / 2);
+        yield return new WaitForSeconds(2 / 2);
         //hurtBox.GetComponent<BoxCollider2D>().enabled = false;
         //canAttack = true;
     }

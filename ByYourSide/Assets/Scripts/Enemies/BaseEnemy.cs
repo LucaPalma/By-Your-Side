@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class BaseEnemy : MonoBehaviour
 {
     //Component Declaration
-    protected Rigidbody2D rb;
+    protected Rigidbody rb;
 
     //Player Information
     protected Transform player;
@@ -20,16 +20,18 @@ public class BaseEnemy : MonoBehaviour
     protected bool playerInLOS = false;
     protected bool seenPlayer = false; //If enemy has seen player at any point
     public bool canAttack = true;
-    public bool canMove = true;
+    public bool canMove = true;  
 
     //Enemy Values
     [SerializeField] protected float fireRate = 2.0f;
     protected float moveSpeed;
-    [SerializeField] private float persueDistance = 17.5f;
+    [SerializeField] protected float persueDistance = 17.5f;
 
-    [SerializeField] private LayerMask barrierLayer;
+    [SerializeField] protected LayerMask barrierLayer;
 
-    private NavMeshAgent agent;
+    protected NavMeshAgent agent;
+
+    protected float oldMoveSpeed;
 
     // Start is called before the first frame update
     private void Awake()
@@ -63,8 +65,6 @@ public class BaseEnemy : MonoBehaviour
         {
             Move();
         }
-
-        
     }
 
     //Updates the player's location and direction from the enemy.
@@ -75,7 +75,7 @@ public class BaseEnemy : MonoBehaviour
         directionToPlayer = playerPosition - transform.position;
     }
 
-    public void CanSeePlayer()
+    public virtual void CanSeePlayer()
     {
         
 

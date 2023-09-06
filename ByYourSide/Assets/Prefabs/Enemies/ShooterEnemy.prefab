@@ -146,13 +146,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canAttack: 1
   canMove: 1
-  fireRate: 2
+  fireRate: 1
   persueDistance: 17.5
   barrierLayer:
     serializedVersion: 2
     m_Bits: 128
-  projectileSpeed: 10
   entity: {fileID: 4157797558086329849}
+  shootDistance: 12
+  slowDistance: 10
+  proj: {fileID: 3236174623819675649, guid: d557e7b7aeecc164b8903ec7375909ac, type: 3}
+  projectileLifeTime: 5
+  projectileDamage: 4
+  projectileSpeed: 10
+  projectileKnockback: 0
+  projectileTarget: Player
+  fireCD: 0
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0
