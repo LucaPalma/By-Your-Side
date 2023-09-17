@@ -151,10 +151,10 @@ MonoBehaviour:
   barrierLayer:
     serializedVersion: 2
     m_Bits: 128
-  minDistToPlayer: 1
+  minDistToPlayer: 3
   maxDistToPlayer: 10
   dmg: 3
-  pwr: 25
+  pwr: 20
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0
