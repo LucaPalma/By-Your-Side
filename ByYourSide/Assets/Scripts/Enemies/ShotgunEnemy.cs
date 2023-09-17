@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterEnemy : BaseEnemy
+public class ShotgunEnemy : BaseEnemy
 {
     //[SerializeField]
     //private GameObject projectilePrefab; // the projectile that this enemy fires at the player
