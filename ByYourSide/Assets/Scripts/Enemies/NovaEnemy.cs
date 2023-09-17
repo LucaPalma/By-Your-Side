@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunEnemy : BaseEnemy
+public class NovaEnemy : BaseEnemy
 {
     //[SerializeField]
     //private GameObject projectilePrefab; // the projectile that this enemy fires at the player
@@ -27,10 +27,10 @@ public class ShotgunEnemy : BaseEnemy
     [SerializeField] private float projectileKnockback;
     [SerializeField] private string projectileTarget;
 
+    [SerializeField] private float fireCD;
 
     [Header("Shotgun Stats")]
     [SerializeField] private float projectileNum;
-    [SerializeField] private float spreadRadius;
 
     private void Awake()
 	{
@@ -83,38 +83,51 @@ public class ShotgunEnemy : BaseEnemy
 	{
         canAttack = false;
 
-        //int projectileNum = 6;
+        //// Luca's turret Code
+        //var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        //projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
+////
+        //projectile.lifeTime = projectileLifeTime;
+        //projectile.damage = projectileDamage;
+        //projectile.speed = projectileSpeed;
+        //projectile.knockback = projectileKnockback;
+        //projectile.target = projectileTarget;
+        //int projectileNum = 12;
 
-        //float spreadRadius = 1f;
-        float angleStep = 180f / projectileNum;
+        float radius = 5f;
+        float angleStep = 360f / projectileNum;
         float angle = 0f;
-        //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
-        //Debug.Log(angle);
 
+        //var projectile2 = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        //projectile2.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
 
+        //var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        //projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
+
+        //projectile.lifeTime = projectileLifeTime;
+        //projectile.damage = projectileDamage;
+        //projectile.speed = projectileSpeed;
+        //projectile.knockback = projectileKnockback;
+        //projectile.target = projectileTarget;
 
         for (int i = 0; i <= projectileNum; i++) 
         {
 
-            float dirX = directionToPlayer.x + Mathf.Sin ((angle * Mathf.PI) / 180) * spreadRadius;
-            float dirZ = directionToPlayer.z + Mathf.Cos ((angle * Mathf.PI) / 180) * spreadRadius;
-            
+            float directionX = Mathf.Sin ((angle * Mathf.PI) / 180) * radius;
+            float directionZ = Mathf.Cos ((angle * Mathf.PI) / 180) * radius;
 
-            Vector3 projectileVector = new Vector3 (dirX, 0, dirZ);
-            //Vector3 projectileMoveDirection = (projectileVector - directionToPlayer).normalized * projectileSpeed;
+            Vector3 projectileVector = new Vector3 (directionX, 0, directionZ);
             Vector3 projectileMoveDirection = (projectileVector).normalized * projectileSpeed;
 
-            var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+            var projectile3 = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
             
-            projectile.GetComponent<Rigidbody>().velocity = new Vector3 (projectileMoveDirection.x, 0, projectileMoveDirection.z);
-            projectile.lifeTime = projectileLifeTime;
-            projectile.damage = projectileDamage;
-            projectile.speed = projectileSpeed;
-            projectile.knockback = projectileKnockback;
-            projectile.target = projectileTarget;
-        
+            projectile3.GetComponent<Rigidbody>().velocity = new Vector3 (projectileMoveDirection.x, 0, projectileMoveDirection.z);
+            projectile3.lifeTime = projectileLifeTime;
+            projectile3.speed = projectileSpeed;
+            
             angle += angleStep;
         }
+        //projectileNum = 6;
         
 
 //

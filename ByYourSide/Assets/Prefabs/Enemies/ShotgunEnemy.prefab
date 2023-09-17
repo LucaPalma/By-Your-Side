@@ -160,7 +160,8 @@ MonoBehaviour:
   projectileSpeed: 20
   projectileKnockback: 0
   projectileTarget: Player
-  fireCD: 0
+  projectileNum: 4
+  spreadRadius: 2
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0

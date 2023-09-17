@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4587779455514765942}
   - component: {fileID: 2047581650575830059}
   - component: {fileID: 8934952008666610430}
-  - component: {fileID: -4872434559008968486}
+  - component: {fileID: 2745316456111704058}
   - component: {fileID: 3449346778884855784}
   - component: {fileID: 3825261703521345263}
   - component: {fileID: 5195601882353814558}
@@ -132,7 +132,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-4872434559008968486
+--- !u!114 &2745316456111704058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,26 +141,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2984688881901170347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e44b92d87ad6b4fa26127b9f957226, type: 3}
+  m_Script: {fileID: 11500000, guid: b516dce4d28db664a8454c95e8b71ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 1
   canMove: 1
-  fireRate: 1
+  fireRate: 2
   persueDistance: 17.5
   barrierLayer:
     serializedVersion: 2
     m_Bits: 128
-  entity: {fileID: 4157797558086329849}
+  entity: {fileID: 0}
   shootDistance: 12
   slowDistance: 10
   proj: {fileID: 3236174623819675649, guid: d557e7b7aeecc164b8903ec7375909ac, type: 3}
-  projectileLifeTime: 3
+  projectileLifeTime: 1
   projectileDamage: 4
-  projectileSpeed: 10
+  projectileSpeed: 20
   projectileKnockback: 0
   projectileTarget: Player
   fireCD: 0
+  projectileNum: 24
+  spreadRadius: 1
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0
