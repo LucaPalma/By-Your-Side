@@ -21,10 +21,11 @@ public class BaseEnemy : MonoBehaviour
     protected bool seenPlayer = false; //If enemy has seen player at any point
     public bool canAttack = true;
     public bool canMove = true;  
+    
 
     //Enemy Values
     [SerializeField] protected float fireRate = 2.0f;
-    protected float moveSpeed;
+    public float moveSpeed;
     [SerializeField] protected float persueDistance = 17.5f;
 
     [SerializeField] protected LayerMask barrierLayer;
@@ -32,6 +33,16 @@ public class BaseEnemy : MonoBehaviour
     protected NavMeshAgent agent;
 
     protected float oldMoveSpeed;
+
+    IEnumerator haltKnockback()
+    {
+        canMove = false;
+        yield return new WaitForSeconds(2f);
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);//Cuts the velocity of the object.
+        canMove = true;
+        agent.speed = moveSpeed;
+        agent.isStopped = false;
+    }
 
     // Start is called before the first frame update
     private void Awake()
@@ -146,4 +157,6 @@ public class BaseEnemy : MonoBehaviour
         //    currentWaypoint++;
         //}
     }
+
+
 }

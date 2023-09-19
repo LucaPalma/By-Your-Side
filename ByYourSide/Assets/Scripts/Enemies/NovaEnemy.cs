@@ -124,7 +124,10 @@ public class NovaEnemy : BaseEnemy
             projectile3.GetComponent<Rigidbody>().velocity = new Vector3 (projectileMoveDirection.x, 0, projectileMoveDirection.z);
             projectile3.lifeTime = projectileLifeTime;
             projectile3.speed = projectileSpeed;
-            
+            projectile3.target = projectileTarget;
+            projectile3.damage = projectileDamage;
+            projectile3.knockback = projectileKnockback;
+
             angle += angleStep;
         }
         //projectileNum = 6;

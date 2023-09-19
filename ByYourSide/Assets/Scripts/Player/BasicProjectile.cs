@@ -59,7 +59,7 @@ public class BasicProjectile : MonoBehaviour
 
 
         }
-        else if (collision.gameObject.layer == 8) //8 Is terrain layer.
+        else if (collision.gameObject.layer == 8|| collision.gameObject.layer == 9) //8 Is terrain layer.  9 is obstacle layer
         {
             Destroy(this.gameObject); //Destroys object on collision with terrain;
         }

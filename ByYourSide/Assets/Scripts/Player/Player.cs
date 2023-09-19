@@ -105,7 +105,6 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         //Set player back to checkpoint if they fall off.
         if (this.transform.position.y < -10)
         {
-            Debug.Log("called respawn");
             rb.position = currentCheckpoint;
         }
 

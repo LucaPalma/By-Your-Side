@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class  KnockBackProjectile : MonoBehaviour
+public class KnockBackProjectile : MonoBehaviour
 {
     [Header("Projectile Variables")]
     public float lifeTime;
@@ -29,7 +30,7 @@ public class  KnockBackProjectile : MonoBehaviour
         rb.velocity = rb.velocity.normalized * speed; //Continue in current direction.
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.tag == target || collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
@@ -43,15 +44,23 @@ public class  KnockBackProjectile : MonoBehaviour
                 }
                 else
                 {
-                    knockable.velocity = (knockable.position - this.transform.position) * knockBack;
+                    knockable.velocity = (knockable.position - this.transform.position).normalized * knockBack;
                 }
-            }           
+                if (collision.gameObject.GetComponent<BaseEnemy>() != null)
+                {
+                    var enemy = collision.gameObject.GetComponent<BaseEnemy>();
+                    enemy.StartCoroutine("haltKnockback");
+                    var enemynav = collision.gameObject.GetComponent<NavMeshAgent>();
+                    enemynav.isStopped = true;
+                    enemynav.speed = 0;
+                }
+            }
         }
         //Destroy enemy projectiles that are targeting the player.
         if (collision.tag == "Projectile")
         {
             if (collision.GetComponent<BasicProjectile>().target == "Player") Destroy(collision.gameObject);
         }
-    }
 
+    }
 }

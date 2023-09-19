@@ -147,6 +147,7 @@ MonoBehaviour:
   canAttack: 1
   canMove: 1
   fireRate: 2
+  moveSpeed: 0
   persueDistance: 17.5
   barrierLayer:
     serializedVersion: 2
@@ -158,11 +159,10 @@ MonoBehaviour:
   projectileLifeTime: 1
   projectileDamage: 4
   projectileSpeed: 20
-  projectileKnockback: 0
+  projectileKnockback: 5
   projectileTarget: Player
   fireCD: 0
   projectileNum: 24
-  spreadRadius: 1
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0
