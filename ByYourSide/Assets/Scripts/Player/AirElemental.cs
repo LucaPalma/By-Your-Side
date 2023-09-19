@@ -35,6 +35,15 @@ public class AirElemental : Pet
     public float bombwindKnockBack;
     public float bombwindSpeed;
 
+    [Header("Air Elemental Lightning Variables")]
+    public BasicProjectile bolt;
+    public float boltLifeTime;
+    public float boltDamage;
+    public float boltSpeed;
+    private float boltKnockback;
+    [SerializeField] private float boltNum;
+    [SerializeField] private float spreadRadius;
+
     [Header("Air Elemental Ultimate Attack")]
     public float projectileNum;
     public float waveNum;
@@ -119,7 +128,29 @@ public class AirElemental : Pet
 
     public override void fiveAttack()
     {
-        //
+        float angleStep = 180f / boltNum;
+        float angle = 0f;
+        var mousePos = new Vector3(worldPosition.x, player.transform.position.y, worldPosition.z); // Get Mouse Position
+        var heading = new Vector3(mousePos.x, this.rb.position.y, mousePos.z) - new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z);//Get direction from pet to mouse.
+
+        for (int i = 0; i <= boltNum; i++)
+        {
+
+            float dirX = heading.x + Mathf.Sin((angle * Mathf.PI) / 180) * spreadRadius;
+            float dirZ = heading.z + Mathf.Cos((angle * Mathf.PI) / 180) * spreadRadius;
+
+            var projectile = Instantiate(bolt, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+            projectile.GetComponent<Rigidbody>().velocity = new Vector3(dirX, 0, dirZ).normalized * boltSpeed;
+
+            projectile.lifeTime = boltLifeTime;
+            projectile.damage = boltDamage;
+            projectile.speed = boltSpeed;
+            projectile.knockback = boltKnockback;
+            projectile.target = projectileTarget;
+            projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
+
+            angle += angleStep;
+        }
     }
 
     public override void ultAttack()

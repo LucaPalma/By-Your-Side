@@ -8922,7 +8922,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+  m_Texture: {fileID: 2800000, guid: e19c1a39f6b504748a5d6f690171d232, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -14039,16 +14039,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: bolt
+      value: 
+      objectReference: {fileID: 3236174623819675649, guid: ae8cd46e91f66e54d88b0dd93837e169, type: 3}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: boltNum
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: waveNum
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: boltSpeed
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: bombspeed
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: boltDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: bombdamage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: boltLifeTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: bomblifeTime
@@ -14058,6 +14078,10 @@ PrefabInstance:
       propertyPath: bombwindProj
       value: 
       objectReference: {fileID: 6592756250461165350, guid: bdab0610ad3a8c14186e09de99633800, type: 3}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: spreadRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: bombwindSpeed
       value: 2
@@ -14069,6 +14093,10 @@ PrefabInstance:
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: bombwindDamage
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: fiveAttackMaxCD
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: fourAttackMaxCD
