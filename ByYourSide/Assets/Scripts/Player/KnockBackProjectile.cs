@@ -30,14 +30,23 @@ public class KnockBackProjectile : MonoBehaviour
         rb.velocity = rb.velocity.normalized * speed; //Continue in current direction.
     }
 
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == target || collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             if (collision.gameObject.GetComponent<Rigidbody>() != null)
             {
                 var knockable = collision.gameObject.GetComponent<Rigidbody>();
-
+                if (collision.gameObject.GetComponent<BaseEnemy>() != null)
+                {
+                    var enemy = collision.gameObject.GetComponent<BaseEnemy>();
+                    enemy.StartCoroutine("haltKnockback");
+                    var enemynav = collision.gameObject.GetComponent<NavMeshAgent>();
+                    enemynav.isStopped = true;
+                    enemynav.speed = 0;
+                    var dummy = collision.gameObject.GetComponent<Dummy>();
+                    dummy.handleDamage(damage);
+                }
                 if (!radialKnockback)
                 {
                     knockable.velocity = knockBackDir * knockBack;
@@ -46,20 +55,16 @@ public class KnockBackProjectile : MonoBehaviour
                 {
                     knockable.velocity = (knockable.position - this.transform.position).normalized * knockBack;
                 }
-                if (collision.gameObject.GetComponent<BaseEnemy>() != null)
-                {
-                    var enemy = collision.gameObject.GetComponent<BaseEnemy>();
-                    enemy.StartCoroutine("haltKnockback");
-                    var enemynav = collision.gameObject.GetComponent<NavMeshAgent>();
-                    enemynav.isStopped = true;
-                    enemynav.speed = 0;
-                }
+
             }
         }
         //Destroy enemy projectiles that are targeting the player.
-        if (collision.tag == "Projectile")
+        if (collision.tag == "Projectile" && collision.GetComponent<BasicProjectile>() !=null)
         {
-            if (collision.GetComponent<BasicProjectile>().target == "Player") Destroy(collision.gameObject);
+            if (collision.GetComponent<BasicProjectile>().target == "Player")
+            {
+                Destroy(collision.gameObject);
+            }
         }
 
     }

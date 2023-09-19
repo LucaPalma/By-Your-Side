@@ -5,7 +5,7 @@ using Unity.AI.Navigation;
 using System.Linq;
 
 
-public class SceneManager : MonoBehaviour
+public class SceneMan : MonoBehaviour
 {
     NavMeshSurface[] surface;
     public NavMeshSurface surfaceSingle;

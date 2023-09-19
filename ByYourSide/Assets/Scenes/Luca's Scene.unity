@@ -4245,7 +4245,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -4677,7 +4677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ee2523340e7944c4297a80937a51484c, type: 3}
+  m_Texture: {fileID: 2800000, guid: 8b79182277ad2354db15b517f4b3a867, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -7251,30 +7251,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061990435}
   m_CullTransparentMesh: 1
---- !u!1 &1115471535 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2945126302451173101, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-  m_PrefabInstance: {fileID: 3504066850058113792}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1115471542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115471535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1130984754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10718,7 +10694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+  m_Texture: {fileID: 2800000, guid: fbdc7b1049923db4a9862b96a2bea39e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -14018,21 +13994,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1060700045139946976, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060700045139946976, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
     - target: {fileID: 2945126302451173101, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: m_Name
       value: AirPet
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945126302451173101, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6035799696352965776, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14075,69 +14039,49 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: windProj
-      value: 
-      objectReference: {fileID: 3940677728651586465, guid: e9604168f19916c4d93381db1b934287, type: 3}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: windSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: windDamage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: knockbackAmt
+      propertyPath: waveNum
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: windLifeTime
-      value: 3
+      propertyPath: bombspeed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: buffAttackGui
+      propertyPath: bombdamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: bomblifeTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: bombwindProj
       value: 
-      objectReference: {fileID: 367103769}
+      objectReference: {fileID: 6592756250461165350, guid: bdab0610ad3a8c14186e09de99633800, type: 3}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: mainAttackGui
-      value: 
-      objectReference: {fileID: 1958737783}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: moveSpeedBuff
-      value: 10
+      propertyPath: bombwindSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: knockbackSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: ultAttackMaxCD
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: fiveAttackMaxCD
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: fourAttackMaxCD
+      propertyPath: projectileNum
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: mainAttackMaxCD
-      value: 0.3
+      propertyPath: bombwindDamage
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: projectileSpeed
-      value: 35
+      propertyPath: fourAttackMaxCD
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: strongAttackGui
-      value: 
-      objectReference: {fileID: 2082869151}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: ultAttackGuiObj
       value: 
       objectReference: {fileID: 2124745492}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: bombwindLifeTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: buffAttackGuiObj
       value: 
@@ -14155,16 +14099,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1958737781}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
+      propertyPath: bombwindKnockBack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: strongAttackGuiObj
       value: 
       objectReference: {fileID: 2082869149}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2945126302451173101, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1115471542}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
 --- !u!1001 &7196865994794593197
 PrefabInstance:
@@ -14174,10 +14119,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2339466553534648863, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: eb035a6f7fc21df4db58dfc760ed3db3, type: 2}
     - target: {fileID: 3822984658613119686, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: comboGuiObj
       value: 
@@ -14190,10 +14131,6 @@ PrefabInstance:
       propertyPath: healthBarObj
       value: 
       objectReference: {fileID: 1771896422}
-    - target: {fileID: 3822984658613119686, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
-      propertyPath: knockbackAmt
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 6407694986404035898, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.5

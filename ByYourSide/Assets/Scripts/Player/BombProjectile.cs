@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicProjectile : MonoBehaviour
+public class BombProjectile : MonoBehaviour
 {
+    Rigidbody rb;
+
     [Header("Projectile Variables")]
     public float lifeTime;
     public float damage;
@@ -11,12 +13,27 @@ public class BasicProjectile : MonoBehaviour
     public float speed;
     public string target;
 
+    [Header("Explosion Variables")]
+    public KnockBackProjectile windProj;
+    public float windLifeTime;
+    public float windDamage;
+    public float windKnockBack;
+    public float windSpeed;
+    public string windTarget;
+
+
+    public void Start()
+    {
+        rb = this.GetComponent<Rigidbody>();
+    }
+
     public void Update()
     {
         //Destroy projectiles that fly off screen
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0)
         {
+            Explode();
             Destroy(this.gameObject);
         }
     }
@@ -25,6 +42,16 @@ public class BasicProjectile : MonoBehaviour
     {
         var rb = this.GetComponent<Rigidbody>();
         rb.velocity = rb.velocity.normalized * speed; //Continue in current direction.
+    }
+
+    public void Explode()
+    {
+        var projectile = Instantiate(windProj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        projectile.lifeTime = windLifeTime;
+        projectile.damage = windDamage;
+        projectile.speed = windSpeed;
+        projectile.target = target;
+        projectile.knockBack = windKnockBack;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -41,25 +68,25 @@ public class BasicProjectile : MonoBehaviour
                 var damageable = collision.gameObject.GetComponent<iDamageable>();
                 damageable.handleDamage(damage);
             }
-
             //Don't destroy projectiles while dodging.
             var p = collision.gameObject.GetComponent<Player>();
             if (collision.gameObject.tag == "Player")
             {
                 if (!(p.dashInvuln))
                 {
+                    Explode();
                     Destroy(this.gameObject);
                 }          
             }
             else
             {
+                Explode();
                 Destroy(this.gameObject);
             }
-
-
         }
         else if (collision.gameObject.layer == 8|| collision.gameObject.layer == 9) //8 Is terrain layer.  9 is obstacle layer
         {
+            Explode();
             Destroy(this.gameObject); //Destroys object on collision with terrain;
         }
     }

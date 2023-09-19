@@ -130,22 +130,26 @@ MonoBehaviour:
   normalColour: {fileID: 2100000, guid: 3e80d4dd9b4070c40815175cd855c841, type: 2}
   dodgeColour: {fileID: 2100000, guid: 4d1f4bc3c8e89d848b694d75d91df3a1, type: 2}
   healthBarObj: {fileID: 0}
+  currentCheckpoint: {x: 0, y: 0, z: 0}
   moveSpeed: 10
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 25
+  currentHealth: 25
   currentPet: Air
   damageInvulnTimerMax: 0.5
+  damageInvulnTimer: 0
   windProj: {fileID: 3940677728651586465, guid: 6b203c5c39ed3a74ead6e1d512be3e0d, type: 3}
   windLifeTime: 0.5
-  windDamage: 0
-  knockbackAmt: 9
+  windDamage: 4
+  knockbackAmt: 7
   windSpeed: 0
   comboMaxCD: 7
   comboGuiObj: {fileID: 0}
   dodgeMaxCD: 4
+  dodgeCurrentCD: 0
   dodgeGuiObj: {fileID: 0}
   dodgeSpeed: 40
   dodgeDuration: 0.25
+  dashInvuln: 0
 --- !u!114 &4269339489292734012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +176,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6832392871631242854}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: eb035a6f7fc21df4db58dfc760ed3db3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

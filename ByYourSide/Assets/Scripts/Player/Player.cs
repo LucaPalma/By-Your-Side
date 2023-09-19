@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+
 
 public class Player : MonoBehaviour, iDamageable, iKnockBackable
 {
@@ -260,6 +262,6 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
 
     public void die()
     {
-        //death logic.
+        SceneManager.LoadScene(0);
     }
 }

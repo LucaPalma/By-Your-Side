@@ -24,6 +24,22 @@ public class AirElemental : Pet
     float currentMoveSpeedDuration;
     bool speedy;//Active while player is buffed.
 
+    [Header("Air Elemental Bomb Variables")]
+    public float bomblifeTime;
+    public float bombdamage;
+    public float bombknockback;
+    public float bombspeed;
+    public BombProjectile bombwindProj;
+    public float bombwindLifeTime;
+    public float bombwindDamage;
+    public float bombwindKnockBack;
+    public float bombwindSpeed;
+
+    [Header("Air Elemental Ultimate Attack")]
+    public float projectileNum;
+    public float waveNum;
+
+
     public override void Update()
     {
         base.Update();//Update functionality of pet.
@@ -80,7 +96,25 @@ public class AirElemental : Pet
 
     public override void fourAttack()
     {
-        //
+        var mousePos = new Vector3(worldPosition.x, player.transform.position.y, worldPosition.z); // Get Mouse Position
+        var heading = new Vector3(mousePos.x, this.rb.position.y, mousePos.z) - new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z);//Get direction from pet to mouse.
+        heading = heading.normalized; //Normalise direction force.
+        var projectile = Instantiate(bombwindProj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        projectile.GetComponent<Rigidbody>().velocity = heading;
+
+        projectile.lifeTime = bomblifeTime;
+        projectile.damage = bombdamage;
+        projectile.speed = bombspeed;
+        projectile.target = projectileTarget;
+        projectile.knockback = bombknockback;
+
+        projectile.windLifeTime = bombwindLifeTime;
+        projectile.windDamage = bombwindDamage;
+        projectile.windKnockBack = bombwindKnockBack;
+        projectile.windSpeed = bombwindSpeed;
+        projectile.windTarget = projectileTarget;
+        
+
     }
 
     public override void fiveAttack()
@@ -90,7 +124,48 @@ public class AirElemental : Pet
 
     public override void ultAttack()
     {
-        //
+        StartCoroutine("UltRoutine");
     }
 
+    public IEnumerator UltWave()
+    {         
+        float radius = 5f;
+        float angleStep = 360f / projectileNum;
+        float angle = 0f;
+
+        for (int i = 0; i <= projectileNum; i++)
+        {
+
+            float directionX = Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+            float directionZ = Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+            Vector3 projectileVector = new Vector3(directionX, 0, directionZ);
+            Vector3 projectileMoveDirection = (projectileVector).normalized * projectileSpeed;
+            var projectile = Instantiate(bombwindProj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+            projectile.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, 0, projectileMoveDirection.z);
+
+            projectile.lifeTime = bomblifeTime;
+            projectile.damage = bombdamage;
+            projectile.speed = bombspeed;
+            projectile.target = projectileTarget;
+            projectile.knockback = bombknockback;
+
+            projectile.windLifeTime = bombwindLifeTime;
+            projectile.windDamage = bombwindDamage;
+            projectile.windKnockBack = bombwindKnockBack;
+            projectile.windSpeed = bombwindSpeed;
+            projectile.windTarget = projectileTarget;
+
+            angle += angleStep;
+        }
+        yield return new WaitForSeconds(1f);
+    }
+    public IEnumerator UltRoutine()
+    {
+        for (int i = 0; i <= waveNum; i++)
+        {
+            StartCoroutine("UltWave");
+            yield return new WaitForSeconds(0.7f);
+        }
+    }
 }
