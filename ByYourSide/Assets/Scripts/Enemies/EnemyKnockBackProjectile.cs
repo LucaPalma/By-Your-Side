@@ -8,7 +8,7 @@ public class EnemyKnockBackProjectile : MonoBehaviour
     [Header("Projectile Variables")]
     public float lifeTime;
     public float damage;
-    public float knockBack;
+    public float knockback;
     public float speed;
     public string target;
     public Vector3 knockBackDir;
@@ -37,7 +37,7 @@ public class EnemyKnockBackProjectile : MonoBehaviour
             if (collision.gameObject.GetComponent<iKnockBackable>() != null)
             {
                 var damageable = collision.gameObject.GetComponent<iKnockBackable>();
-                damageable.handleKnockBack(knockBack, this.transform.position);
+                damageable.handleKnockBack(knockback, this.transform.position);
             }
             if (collision.gameObject.GetComponent<iDamageable>() != null)
             {

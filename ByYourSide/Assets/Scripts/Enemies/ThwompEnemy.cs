@@ -170,7 +170,7 @@ public class ThwompEnemy : BaseEnemy
             projectile.speed = windSpeed;
             projectile.target = projectileTarget;
             projectile.damage = windLifeTime;
-            projectile.knockBack = knockbackAmt;
+            projectile.knockback = knockbackAmt;
 
             //projectile.lifeTime = windLifeTime;
             //projectile.damage = windDamage;
