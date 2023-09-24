@@ -39,7 +39,7 @@ public class BounceProjectile : MonoBehaviour
             GetComponent<Rigidbody>().velocity = origin.normalized;
             transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity.normalized, Vector3.up);
         }
-        else if (destinationDirection.magnitude < 1 && pastTarget)
+        else if (destinationDirection.magnitude < 0.5f && pastTarget)
         {
             Destroy(this.gameObject);
         }

@@ -159,7 +159,7 @@ MonoBehaviour:
   proj: {fileID: 2719571366003594058, guid: 808662cd82b42aa4fb73e20aa32ceadf, type: 3}
   projectileLifeTime: 20
   projectileDamage: 4
-  projectileSpeed: 10
+  projectileSpeed: 50
   projectileKnockback: 5
   lightningCD: 4
   projectileNum: 6
