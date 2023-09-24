@@ -21,7 +21,7 @@ public class ThwompEnemy : BaseEnemy
 
 
     [Header("Lightning Stats")]
-    [SerializeField] private BasicProjectile proj;
+    [SerializeField] private BounceProjectile proj;
     [SerializeField] private float projectileLifeTime;
     [SerializeField] private float projectileDamage;
     [SerializeField] private float projectileSpeed;
@@ -119,12 +119,33 @@ public class ThwompEnemy : BaseEnemy
     // Lightning
     public IEnumerator Attack2()
 	{
-        canAttack = false;
-        LightningAttack();
+        canAttack2 = false;
+
+        //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
+        yield return new WaitForSeconds(0.5f);
+
+
+        float angleStep = 180f / projectileNum;
+        float angle = 0f;
+        float spreadRadius = 2f;
+        //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
+        //Debug.Log(angle);
+
+        var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
+
+        projectile.lifeTime = projectileLifeTime;
+        projectile.damage = projectileDamage;
+        projectile.speed = projectileSpeed;
+        projectile.knockback = projectileKnockback;
+        projectile.target = projectileTarget;
+        projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
+        projectile.origin = transform.position;
+        projectile.targetSpot = playerPosition;
         
         // wait amount of seconds before firing again
-        yield return new WaitForSeconds(lightningCD);
-        canAttack = true;
+        yield return new WaitForSeconds(lightningCD - 1);
+        canAttack2 = true;
     }
 
     public void WingGustAttack(int localNum)
@@ -140,7 +161,7 @@ public class ThwompEnemy : BaseEnemy
             float directionZ = Mathf.Cos ((angle * Mathf.PI) / 180) * radius;
 
             Vector3 projectileVector = new Vector3 (directionX, 0, directionZ);
-            Vector3 projectileMoveDirection = (projectileVector).normalized * projectileSpeed;
+            Vector3 projectileMoveDirection = (projectileVector).normalized * windSpeed;
 
             var projectile = Instantiate(windProj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.Euler(0, angle, 0));
             
@@ -171,30 +192,15 @@ public class ThwompEnemy : BaseEnemy
         //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
         //Debug.Log(angle);
 
+        var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
 
-
-        for (int i = 0; i <= projectileNum; i++) 
-        {
-
-            float dirX = directionToPlayer.x + Mathf.Sin ((angle * Mathf.PI) / 180) * spreadRadius;
-            float dirZ = directionToPlayer.z + Mathf.Cos ((angle * Mathf.PI) / 180) * spreadRadius;
-            
-
-            Vector3 projectileVector = new Vector3 (dirX, 0, dirZ);
-            //Vector3 projectileMoveDirection = (projectileVector - directionToPlayer).normalized * projectileSpeed;
-            Vector3 projectileMoveDirection = (projectileVector).normalized * projectileSpeed;
-
-            var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
-            
-            projectile.GetComponent<Rigidbody>().velocity = new Vector3 (projectileMoveDirection.x, 0, projectileMoveDirection.z);
-            projectile.lifeTime = projectileLifeTime;
-            projectile.damage = projectileDamage;
-            projectile.speed = projectileSpeed;
-            projectile.knockback = projectileKnockback;
-            projectile.target = projectileTarget;
-        
-            angle += angleStep;
-        }
+        projectile.lifeTime = projectileLifeTime;
+        projectile.damage = projectileDamage;
+        projectile.speed = projectileSpeed;
+        projectile.knockback = projectileKnockback;
+        projectile.target = projectileTarget;
+        projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
 	}
 
     public void DeathSound()

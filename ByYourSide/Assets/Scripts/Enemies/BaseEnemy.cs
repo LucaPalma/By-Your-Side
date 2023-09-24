@@ -95,7 +95,7 @@ public class BaseEnemy : MonoBehaviour
         {                               //seen that was inside the persue distance
             rayLength = persueDistance;
         }
-        Debug.DrawRay(transform.position, directionToPlayer, Color.red);
+        //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
         if (Physics.Raycast(ray, out hit, rayLength, barrierLayer) && !(hit.transform.gameObject.layer == 9 )) //If Ray hits object AND object is of player player (9)
             {
                 seenPlayer = true;

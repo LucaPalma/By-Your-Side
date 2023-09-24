@@ -156,10 +156,10 @@ MonoBehaviour:
   shootDistance: 12
   slowDistance: 10
   projectileTarget: Player
-  proj: {fileID: 3236174623819675649, guid: d557e7b7aeecc164b8903ec7375909ac, type: 3}
-  projectileLifeTime: 1
+  proj: {fileID: 2719571366003594058, guid: 808662cd82b42aa4fb73e20aa32ceadf, type: 3}
+  projectileLifeTime: 20
   projectileDamage: 4
-  projectileSpeed: 20
+  projectileSpeed: 10
   projectileKnockback: 5
   lightningCD: 4
   projectileNum: 6
@@ -170,6 +170,7 @@ MonoBehaviour:
   knockbackAmt: 25
   windSpeed: 7.5
   wingGustCD: 3
+  canAttack2: 1
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0

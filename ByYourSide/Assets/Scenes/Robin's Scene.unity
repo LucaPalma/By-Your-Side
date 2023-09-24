@@ -7712,6 +7712,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 316778329229520480, guid: e7da385834db2e64790d910176b97edc, type: 3}
+      propertyPath: projectileSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2984688881901170347, guid: e7da385834db2e64790d910176b97edc, type: 3}
       propertyPath: m_Name
       value: ThwompEnemy
