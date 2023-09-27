@@ -15,14 +15,19 @@ public class BounceProjectile : MonoBehaviour
     public Vector3 destinationDirection;
     private bool pastTarget = false; 
 
-    private void Awake()
+    private void Start()
 	{
-        //GetLocation(targetSpot);
+        //origin = transform.position;
 	}
 
     public void Update()
     {
-        //Destroy projectiles that fly off screen
+        //Display Draw Rays
+        // They point to where the origin and initial target are
+        Debug.DrawRay(transform.position, origin, Color.red);
+        Debug.DrawRay(transform.position, targetSpot, Color.red);
+
+        //Get Target Spot
         GetLocation(targetSpot);
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0)
@@ -30,22 +35,23 @@ public class BounceProjectile : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        //If it has reached it's destination and has NOT already been to it's first target
         if (destinationDirection.magnitude < 1 && pastTarget == false)
         {
-            //Destroy(this.gameObject);
-
+            //Set target to be origin
             targetSpot = origin;
             pastTarget = true;
-            GetComponent<Rigidbody>().velocity = origin.normalized;
+            //Set velocity to be towards new target and change rotation to fit with this
+            GetComponent<Rigidbody>().velocity = targetSpot.normalized;
             transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity.normalized, Vector3.up);
         }
+        //If it has reached it's destination and has already been to it's first target
         else if (destinationDirection.magnitude < 0.5f && pastTarget)
         {
             Destroy(this.gameObject);
         }
 
-        Debug.DrawRay(transform.position, origin, Color.red);
-        Debug.DrawRay(transform.position, targetSpot, Color.red);
+        
 
         //GetLocation();
     }
@@ -89,8 +95,6 @@ public class BounceProjectile : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-
-
         }
         else if (collision.gameObject.layer == 8|| collision.gameObject.layer == 9) //8 Is terrain layer.  9 is obstacle layer
         {

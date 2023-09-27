@@ -140,6 +140,10 @@ public class ThwompEnemy : BaseEnemy
         projectile.knockback = projectileKnockback;
         projectile.target = projectileTarget;
         projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
+
+
+
+        //Set Projectile's origin and target spot
         projectile.origin = transform.position;
         projectile.targetSpot = playerPosition;
         
