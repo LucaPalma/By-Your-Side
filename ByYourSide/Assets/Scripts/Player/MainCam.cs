@@ -12,6 +12,8 @@ public class MainCam : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
+        Application.targetFrameRate = 144;
+        QualitySettings.vSyncCount = 1;
     }
 
     // Update is called once per frame
