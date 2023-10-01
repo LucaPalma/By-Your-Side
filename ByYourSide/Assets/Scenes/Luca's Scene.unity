@@ -22371,6 +22371,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3822984658613119686, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3822984658613119686, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: comboGuiObj
       value: 
       objectReference: {fileID: 1627203737}
@@ -22382,6 +22386,10 @@ PrefabInstance:
       propertyPath: healthBarObj
       value: 
       objectReference: {fileID: 1771896422}
+    - target: {fileID: 3822984658613119686, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
+      propertyPath: currentHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6407694986404035898, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.8
