@@ -11,7 +11,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public Material normalColour;
     public Material dodgeColour;
     public GameObject healthBarObj;
-    cooldownTimer healthBar;
+    public cooldownTimer healthBar;
     Pet pet;
     public Vector3 currentCheckpoint;
 
