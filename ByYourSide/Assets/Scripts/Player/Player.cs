@@ -262,6 +262,8 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
 
     public void die()
     {
-        SceneManager.LoadScene(0);
+        currentHealth = maxHealth;
+        rb.position = currentCheckpoint;
+        healthBar.SetHealth(currentHealth);
     }
 }
