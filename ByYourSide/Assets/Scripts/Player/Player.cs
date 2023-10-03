@@ -14,6 +14,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public cooldownTimer healthBar;
     Pet pet;
     public Vector3 currentCheckpoint;
+    public Animator anim;
 
 
     //Input Bools
@@ -105,7 +106,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         if (rb.velocity.y > 0) { rb.velocity = new Vector3(rb.velocity.x,0,rb.velocity.z); }
 
         //Set player back to checkpoint if they fall off.
-        if (this.transform.position.y < -10)
+        if (this.transform.position.y < -0)
         {
             rb.position = currentCheckpoint;
         }
@@ -135,6 +136,61 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         {
             wantToInteract = true;
         }
+
+        //Set animation to walking.
+        if (intentionX != 0 || intentionY != 0)
+        {
+            anim.SetBool("walking", true);
+        }
+        else anim.SetBool("walking", false);
+
+        //Rotate model
+        if (rb.velocity.x > 0)
+        {
+            if (rb.velocity.z > 0)
+            {
+                //Facing UpRight
+                gameObject.transform.rotation = Quaternion.Euler(0,45,0);
+            }
+            else if (rb.velocity.z < 0)
+            {
+                //Facing DownRight
+                gameObject.transform.rotation = Quaternion.Euler(0, 135, 0);
+            }
+            else gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);//Facing Right
+
+        }
+        else if (rb.velocity.x < 0)
+        {
+            if (rb.velocity.z > 0)
+            {
+                //Facing UpLeft
+                gameObject.transform.rotation = Quaternion.Euler(0, -45, 0);
+            }
+            else if (rb.velocity.z < 0)
+            {
+                //Facing DownLeft
+                gameObject.transform.rotation = Quaternion.Euler(0, -135, 0);
+            }
+            else gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);//Facing Left
+
+
+        }
+        else
+        {
+            if (rb.velocity.z > 0)
+            {
+                //Facing Up
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            }
+            else if (rb.velocity.z < 0)
+            {
+                //Facing down
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+        }
+
     }
 
     public void handleAbilities()
