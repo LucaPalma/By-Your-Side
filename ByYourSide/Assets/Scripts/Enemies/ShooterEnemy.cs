@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class ShooterEnemy : BaseEnemy
 {
-    //[SerializeField]
-    //private GameObject projectilePrefab; // the projectile that this enemy fires at the player
-    //Rigidbody rb;
     [SerializeField]
     private Transform entity; // the reference to this enemy
     [SerializeField]
     private float shootDistance = 12.0f;
     [SerializeField]
     private float slowDistance = 10.0f;
-    //[SerializeField] private string soundName;
-	//private AudioSource abilitySound;
-    //[SerializeField] private string deathName;
-	//private AudioSource deathSound;
+
 
 
     [Header("Shooting Stats")]
@@ -29,6 +23,10 @@ public class ShooterEnemy : BaseEnemy
 
     [SerializeField] private float fireCD;
 
+    [Header("Sounds")]
+    [SerializeField] private string shootName;
+	private AudioSource shootSound;
+
     private void Awake()
 	{
         rb = GetComponent<Rigidbody>();
@@ -40,8 +38,7 @@ public class ShooterEnemy : BaseEnemy
 
         oldMoveSpeed = moveSpeed;
         canMove = true;
-        //abilitySound = GameObject.Find(soundName).GetComponent<AudioSource>();
-        //deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        shootSound = GameObject.Find(shootName).GetComponent<AudioSource>();
 	}
 
 	protected override void Update()
@@ -80,6 +77,8 @@ public class ShooterEnemy : BaseEnemy
 	{
         canAttack = false;
 
+        shootSound.Play();
+
         // Luca's turret Code
         var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
         projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
@@ -93,10 +92,5 @@ public class ShooterEnemy : BaseEnemy
         // wait amount of seconds before firing again
         yield return new WaitForSeconds(fireRate);
         canAttack = true;
-    }
-
-    public void DeathSound()
-    {
-        //deathSound.Play();
     }
 }

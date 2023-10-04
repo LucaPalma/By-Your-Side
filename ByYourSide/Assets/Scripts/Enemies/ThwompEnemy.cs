@@ -39,6 +39,12 @@ public class ThwompEnemy : BaseEnemy
     [SerializeField] private float windSpeed;
     [SerializeField] private float wingGustCD;
 
+    [Header("Sounds")]
+    [SerializeField] private string lightningName;
+	private AudioSource lightningSound;
+    [SerializeField] private string cloudName;
+	private AudioSource cloudSound;
+
 
     private bool attackRotate = false;
     public bool canAttack2 = true;
@@ -54,8 +60,9 @@ public class ThwompEnemy : BaseEnemy
 
         oldMoveSpeed = moveSpeed;
         canMove = true;
-        //abilitySound = GameObject.Find(soundName).GetComponent<AudioSource>();
-        //deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        lightningSound = GameObject.Find(lightningName).GetComponent<AudioSource>();
+        cloudSound = GameObject.Find(cloudName).GetComponent<AudioSource>();
+
 	}
 
 	protected override void Update()
@@ -98,6 +105,7 @@ public class ThwompEnemy : BaseEnemy
     public override IEnumerator Attack()
 	{
         canAttack = false;
+        cloudSound.Play();
         WingGustAttack(projectileNum);
 
         if (attackRotate)
@@ -119,6 +127,8 @@ public class ThwompEnemy : BaseEnemy
     // Lightning
     public IEnumerator Attack2()
 	{
+
+        lightningSound.Play();
         canAttack2 = false;
 
         //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
@@ -206,9 +216,4 @@ public class ThwompEnemy : BaseEnemy
         projectile.target = projectileTarget;
         projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
 	}
-
-    public void DeathSound()
-    {
-        //deathSound.Play();
-    }
 }

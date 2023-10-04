@@ -32,6 +32,10 @@ public class ShotgunEnemy : BaseEnemy
     [SerializeField] private float projectileNum;
     [SerializeField] private float spreadRadius;
 
+    [Header("Sounds")]
+    [SerializeField] private string shootName;
+	private AudioSource shootSound;
+
     private void Awake()
 	{
         rb = GetComponent<Rigidbody>();
@@ -43,8 +47,7 @@ public class ShotgunEnemy : BaseEnemy
 
         oldMoveSpeed = moveSpeed;
         canMove = true;
-        //abilitySound = GameObject.Find(soundName).GetComponent<AudioSource>();
-        //deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        shootSound = GameObject.Find(shootName).GetComponent<AudioSource>();
 	}
 
 	protected override void Update()
@@ -82,6 +85,8 @@ public class ShotgunEnemy : BaseEnemy
     public override IEnumerator Attack()
 	{
         canAttack = false;
+
+        shootSound.Play();
 
         //int projectileNum = 6;
 
@@ -145,9 +150,4 @@ public class ShotgunEnemy : BaseEnemy
             angle += angleStep;
         }
 	}
-
-    public void DeathSound()
-    {
-        //deathSound.Play();
-    }
 }

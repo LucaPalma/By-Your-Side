@@ -157,3 +157,4 @@ MonoBehaviour:
   windKnockBack: 0
   windSpeed: 0
   windTarget: 
+  explodeName: BombExplodeQuiet

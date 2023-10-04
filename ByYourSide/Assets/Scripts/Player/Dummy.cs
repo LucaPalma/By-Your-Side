@@ -7,6 +7,15 @@ public class Dummy : MonoBehaviour, iDamageable
     [Header("Stats")]
     public float health;
 
+    [Header("Sounds")]
+    [SerializeField] private string deathName;
+	private AudioSource deathSound;
+
+        private void Awake()
+	{
+        deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+	}
+
     void Update()
     {
         handleHealth();
@@ -16,6 +25,7 @@ public class Dummy : MonoBehaviour, iDamageable
     {
         if (health <= 0)
         {
+            deathSound.Play();
             Destroy(this.gameObject);
         }
     }

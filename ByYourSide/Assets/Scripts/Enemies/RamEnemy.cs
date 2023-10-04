@@ -13,10 +13,9 @@ public class RamEnemy : BaseEnemy
     //protected iFrameHealth plrHealth;
     //public GameObject hurtBox;
 
-    //[SerializeField] private string soundName;
-	//private AudioSource abilitySound;
-    //[SerializeField] private string deathName;
-	//private AudioSource deathSound;
+    [Header("Sounds")]
+    [SerializeField] private string shootName;
+	private AudioSource shootSound;
 
     private void Awake()
     {
@@ -27,9 +26,7 @@ public class RamEnemy : BaseEnemy
 
         lastSeenPosition = transform.position;
 
-        //plrHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<iFrameHealth>();
-        //abilitySound = GameObject.Find(soundName).GetComponent<AudioSource>();
-        //deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        shootSound = GameObject.Find(shootName).GetComponent<AudioSource>();
     }
     
 
@@ -57,6 +54,7 @@ public class RamEnemy : BaseEnemy
     public override IEnumerator Attack()
     {
         //Debug.Log("Pew");
+        shootSound.Play();
         canMove = false;
         agent.ResetPath();
         canAttack = false;
@@ -79,10 +77,5 @@ public class RamEnemy : BaseEnemy
     private float GetDistanceToPlayer()
     {
         return Vector3.Distance(lastSeenPosition, transform.position);
-    }
-
-    public void DeathSound()
-    {
-        //deathSound.Play();
     }
 }

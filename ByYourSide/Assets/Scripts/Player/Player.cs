@@ -59,8 +59,24 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     float currentdodgeDuration;
     public bool dashInvuln;//Active while player is buffed.
     public MainCam cam;
- 
 
+    [Header("Sounds")]
+    [SerializeField] private string dodgeName;
+	private AudioSource dodgeSound;
+    [SerializeField] private string deathName;
+	private AudioSource deathSound;
+    [SerializeField] private string damageName;
+	private AudioSource damageSound;
+    [SerializeField] private string shieldName;
+	private AudioSource shieldSound;
+ 
+    private void Awake()
+	{
+        dodgeSound = GameObject.Find(dodgeName).GetComponent<AudioSource>();
+        deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        damageSound = GameObject.Find(damageName).GetComponent<AudioSource>();
+        shieldSound = GameObject.Find(shieldName).GetComponent<AudioSource>();
+	}
 
     private void Start()
     {
@@ -204,6 +220,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             dodge();
             wantToDodge = false;
             dodgeCurrentCD = dodgeMaxCD;
+            dodgeSound.Play();
         }
 
         if (wantToCombo && comboCurrentCD <= 0)
@@ -211,6 +228,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             combo();
             wantToCombo = false;
             comboCurrentCD = comboMaxCD;
+            shieldSound.Play();
         }
 
         //Reset Triggers
@@ -302,11 +320,13 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             currentHealth -= dmg;
             damageInvulnTimer = damageInvulnTimerMax;
             healthBar.SetHealth(currentHealth);
+            damageSound.Play();
         }
 
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            deathSound.Play();
             die();
         }
     }

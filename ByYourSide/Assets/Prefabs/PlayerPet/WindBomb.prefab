@@ -150,10 +150,11 @@ MonoBehaviour:
   damage: 0
   knockback: 0
   speed: 0
-  target: 
+  target: Sh
   windProj: {fileID: 3940677728651586465, guid: 6b203c5c39ed3a74ead6e1d512be3e0d, type: 3}
   windLifeTime: 0
   windDamage: 0
   windKnockBack: 0
   windSpeed: 0
   windTarget: 
+  shootName: 
