@@ -58,6 +58,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public float dodgeDuration;
     float currentdodgeDuration;
     public bool dashInvuln;//Active while player is buffed.
+    public MainCam cam;
  
 
 
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         currentCheckpoint = this.transform.position; //Update first checkpoint to be spawn location
         rb = GetComponent<Rigidbody>();
         pet = FindObjectOfType<Pet>();
+        cam = FindObjectOfType<MainCam>();
 
         //Find Gui
         comboGui = comboGuiObj.GetComponent<cooldownTimer>();
@@ -109,6 +111,8 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         if (this.transform.position.y < -0)
         {
             rb.position = currentCheckpoint;
+            FindObjectOfType<Camera>().transform.position = currentCheckpoint;
+            pet.rb.position = currentCheckpoint;
         }
 
     }
@@ -227,7 +231,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public void dodge()
     {
         this.rb.velocity = this.rb.velocity.normalized * dodgeSpeed;
-
+        cam.cameraSpeed = 0.3f;
         currentdodgeDuration = dodgeDuration;
         dashInvuln = true;
         //Allow player to dodge over gaps
@@ -278,6 +282,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         //Update players velocity based on intention if not dodging.
         if (currentdodgeDuration <= 0)
         {
+            cam.cameraSpeed = 0.1f;
             var newVel = new Vector3((moveSpeed) * intentionX, rb.velocity.y, (moveSpeed) * intentionY);
             rb.velocity = newVel;
             pet.rb.velocity = newVel;
