@@ -147,10 +147,11 @@ MonoBehaviour:
   canAttack: 1
   canMove: 1
   fireRate: 2
+  moveSpeed: 0
   persueDistance: 17.5
   barrierLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   minDistToPlayer: 0
   dmg: 3
   pwr: 5

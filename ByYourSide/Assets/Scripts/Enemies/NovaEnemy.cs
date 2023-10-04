@@ -72,7 +72,7 @@ public class NovaEnemy : BaseEnemy
             Move();
         }
 
-        if (directionToPlayer.magnitude < slowDistance) //If player is inside slow distance
+        if (directionToPlayer.magnitude < slowDistance && playerInLOS) //If player is inside slow distance
         {
             agent.speed = oldMoveSpeed/10; //Slow speed by 90%
         }
