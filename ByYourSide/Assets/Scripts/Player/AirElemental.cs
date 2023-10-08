@@ -49,15 +49,15 @@ public class AirElemental : Pet
     public float waveNum;
 
     [Header("Sounds")]
-    [SerializeField] private string shootName;
+    [SerializeField] private string shootName = "PetShoot";
 	private AudioSource shootSound;
-    [SerializeField] private string tornadoName;
+    [SerializeField] private string tornadoName = "PetTornado";
 	private AudioSource tornadoSound;
-    [SerializeField] private string zoomName;
+    [SerializeField] private string zoomName = "PetZoom";
 	private AudioSource zoomSound;
-    [SerializeField] private string shotgunName;
+    [SerializeField] private string shotgunName = "PetShotgun";
 	private AudioSource shotgunSound;
-    [SerializeField] private string ultimateName;
+    [SerializeField] private string ultimateName = "PlayerUltimate";
 	private AudioSource ultimateSound;
 
 

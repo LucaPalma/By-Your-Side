@@ -33,7 +33,7 @@ public class ShotgunEnemy : BaseEnemy
     [SerializeField] private float spreadRadius;
 
     [Header("Sounds")]
-    [SerializeField] private string shootName;
+    [SerializeField] private string shootName = "EnemyShotgun";
 	private AudioSource shootSound;
 
     private void Awake()

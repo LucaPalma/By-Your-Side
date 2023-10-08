@@ -33,7 +33,7 @@ public class NovaEnemy : BaseEnemy
     [SerializeField] private float projectileNum;
 
     [Header("Sounds")]
-    [SerializeField] private string shootName;
+    [SerializeField] private string shootName = "EnemyNova";
 	private AudioSource shootSound;
 
     private void Awake()

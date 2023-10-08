@@ -22503,6 +22503,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 751323255244195009, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
+      propertyPath: m_Name
+      value: ExplodeLoud
+      objectReference: {fileID: 0}
     - target: {fileID: 4012012577213692013, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22546,6 +22550,10 @@ PrefabInstance:
     - target: {fileID: 6501394070057925833, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541528200770618729, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
+      propertyPath: m_Name
+      value: ExplodeQuiet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

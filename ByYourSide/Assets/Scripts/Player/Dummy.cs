@@ -8,7 +8,7 @@ public class Dummy : MonoBehaviour, iDamageable
     public float health;
 
     [Header("Sounds")]
-    [SerializeField] private string deathName;
+    [SerializeField] private string deathName = "EnemyDeath";
 	private AudioSource deathSound;
 
         private void Awake()

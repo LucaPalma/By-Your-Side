@@ -27,7 +27,7 @@ public class NormalCloudEnemy : BaseEnemy
     [SerializeField] private float fireCD;
 
     [Header("Sounds")]
-    [SerializeField] private string shootName;
+    [SerializeField] private string shootName = "EnemyCloud";
 	private AudioSource shootSound;
 
     private void Awake()

@@ -21,16 +21,12 @@ public class BombProjectile : MonoBehaviour
     public float windSpeed;
     public string windTarget;
 
-    //[Header("Sounds")]
-    //[SerializeField] private string explodeName;
-	//private AudioSource explodeSound;
     [Header("Sounds")]
-    [SerializeField] private string explodeName;
+    [SerializeField] private string explodeName = "ExplodeQuiet";
 	private AudioSource explodeSound;
 
     private void Awake()
 	{
-        //explodeSound = GameObject.Find(explodeName).GetComponent<AudioSource>();
         explodeSound = GameObject.Find(explodeName).GetComponent<AudioSource>();
 	}
 

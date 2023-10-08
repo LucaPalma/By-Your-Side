@@ -14,7 +14,7 @@ public class RamEnemy : BaseEnemy
     //public GameObject hurtBox;
 
     [Header("Sounds")]
-    [SerializeField] private string shootName;
+    [SerializeField] private string shootName = "EnemyMelee";
 	private AudioSource shootSound;
 
     private void Awake()

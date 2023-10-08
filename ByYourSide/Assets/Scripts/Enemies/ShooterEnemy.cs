@@ -24,7 +24,7 @@ public class ShooterEnemy : BaseEnemy
     [SerializeField] private float fireCD;
 
     [Header("Sounds")]
-    [SerializeField] private string shootName;
+    [SerializeField] private string shootName = "EnemyShoot";
 	private AudioSource shootSound;
 
     private void Awake()

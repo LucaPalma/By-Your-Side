@@ -61,13 +61,13 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public MainCam cam;
 
     [Header("Sounds")]
-    [SerializeField] private string dodgeName;
+    [SerializeField] private string dodgeName = "PlayerDash";
 	private AudioSource dodgeSound;
-    [SerializeField] private string deathName;
+    [SerializeField] private string deathName = "PlayerDeath";
 	private AudioSource deathSound;
-    [SerializeField] private string damageName;
+    [SerializeField] private string damageName = "PlayerDamage";
 	private AudioSource damageSound;
-    [SerializeField] private string shieldName;
+    [SerializeField] private string shieldName = "PlayerShield";
 	private AudioSource shieldSound;
  
     private void Awake()

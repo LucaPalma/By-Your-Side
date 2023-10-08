@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 9025455906184519647}
   - component: {fileID: 3294639325176349174}
   m_Layer: 0
-  m_Name: BombExplodeLoud
+  m_Name: ExplodeLoud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2412,7 +2412,7 @@ GameObject:
   - component: {fileID: 4316361295034309778}
   - component: {fileID: 5540725378897031849}
   m_Layer: 0
-  m_Name: BombExplodeQuiet
+  m_Name: ExplodeQuiet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

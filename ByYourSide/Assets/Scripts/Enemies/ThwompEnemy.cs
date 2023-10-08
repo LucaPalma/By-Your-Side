@@ -40,9 +40,9 @@ public class ThwompEnemy : BaseEnemy
     [SerializeField] private float wingGustCD;
 
     [Header("Sounds")]
-    [SerializeField] private string lightningName;
+    [SerializeField] private string lightningName = "BossLightning";
 	private AudioSource lightningSound;
-    [SerializeField] private string cloudName;
+    [SerializeField] private string cloudName = "EnemyCloud";
 	private AudioSource cloudSound;
 
 
