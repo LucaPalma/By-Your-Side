@@ -126,4 +126,5 @@ MonoBehaviour:
   activated: 0
   linkedMoveable: {fileID: 0}
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
+  defShootable: {fileID: 2100000, guid: e82753d0ee09ccd45bfa399659d75df4, type: 2}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}

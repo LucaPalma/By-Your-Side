@@ -11,11 +11,13 @@ public class switchButton : MonoBehaviour
     public moveableObject linkedMoveable;
     Transform p;
     public Material def;
+    public Material defShootable;
     public Material green;
      
 
     private void Start()
     {
+        if (shootable) this.gameObject.GetComponent<MeshRenderer>().material = defShootable;
         p = FindObjectOfType<Player>().GetComponent<Transform>();     
     }
 
@@ -68,7 +70,8 @@ public class switchButton : MonoBehaviour
         linkedMoveable.reduceRequired();
         yield return new WaitForSeconds(activationTime);
         activated = false;
-        this.gameObject.GetComponent<MeshRenderer>().material = def;
+        if (shootable) this.gameObject.GetComponent<MeshRenderer>().material = defShootable;
+        else this.gameObject.GetComponent<MeshRenderer>().material = def;
         linkedMoveable.increaseRequired();
     }
 }

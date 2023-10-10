@@ -23,15 +23,14 @@ public class MainCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         horiOffset = Input.GetAxis("Horizontal"); //A and D scale from -1 to 1
         vertOffset = Input.GetAxis("Vertical"); //W and S scale from -1 to 1
-
-
         Vector3 updatedPos = new Vector3(player.transform.position.x + (horiOffset*offsetAmt),camHeight,player.transform.position.z + (vertOffset * offsetAmt));
         targetPos = updatedPos;
-
         transform.position = Vector3.MoveTowards(transform.position,targetPos,cameraSpeed);
         transform.position = new Vector3(transform.position.x,camHeight,transform.position.z);
-
+        */
+        transform.position = new Vector3(player.transform.position.x, camHeight, player.transform.position.z);
     }
 }
