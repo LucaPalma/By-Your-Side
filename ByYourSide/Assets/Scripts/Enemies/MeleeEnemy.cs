@@ -9,14 +9,6 @@ public class MeleeEnemy : BaseEnemy
     [SerializeField] protected float dmg = 3;
     [SerializeField] private float pwr = 5;
 
-    //protected iFrameHealth plrHealth;
-    //public GameObject hurtBox;
-
-    //[SerializeField] private string soundName;
-	//private AudioSource abilitySound;
-    //[SerializeField] private string deathName;
-	//private AudioSource deathSound;
-
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -24,10 +16,6 @@ public class MeleeEnemy : BaseEnemy
         moveSpeed = agent.speed;
 
         lastSeenPosition = transform.position;
-
-        //plrHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<iFrameHealth>();
-        //abilitySound = GameObject.Find(soundName).GetComponent<AudioSource>();
-        //deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
     }
     
 
@@ -75,10 +63,5 @@ public class MeleeEnemy : BaseEnemy
     private float GetDistanceToPlayer()
     {
         return Vector3.Distance(lastSeenPosition, transform.position);
-    }
-
-    public void DeathSound()
-    {
-        //deathSound.Play();
     }
 }

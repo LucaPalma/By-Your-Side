@@ -13,10 +13,7 @@ public class NormalCloudEnemy : BaseEnemy
     private float shootDistance = 12.0f;
     [SerializeField]
     private float slowDistance = 10.0f;
-    //[SerializeField] private string soundName;
-	//private AudioSource abilitySound;
-    //[SerializeField] private string deathName;
-	//private AudioSource deathSound;
+
 
 
     [Header("Shooting Stats")]
@@ -29,6 +26,10 @@ public class NormalCloudEnemy : BaseEnemy
 
     [SerializeField] private float fireCD;
 
+    [Header("Sounds")]
+    [SerializeField] private string shootName = "EnemyCloud";
+	private AudioSource shootSound;
+
     private void Awake()
 	{
         rb = GetComponent<Rigidbody>();
@@ -40,8 +41,7 @@ public class NormalCloudEnemy : BaseEnemy
 
         oldMoveSpeed = moveSpeed;
         canMove = true;
-        //abilitySound = GameObject.Find(soundName).GetComponent<AudioSource>();
-        //deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        shootSound = GameObject.Find(shootName).GetComponent<AudioSource>();
 	}
 
 	protected override void Update()
@@ -69,7 +69,7 @@ public class NormalCloudEnemy : BaseEnemy
             Move();
         }
 
-        if (directionToPlayer.magnitude < slowDistance) //If player is inside slow distance
+        if (directionToPlayer.magnitude < slowDistance && playerInLOS) //If player is inside slow distance
         {
             agent.speed = oldMoveSpeed/10; //Slow speed by 90%
         }
@@ -79,6 +79,8 @@ public class NormalCloudEnemy : BaseEnemy
     public override IEnumerator Attack()
 	{
         canAttack = false;
+
+        shootSound.Play();
 
         // Luca's turret Code
         var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
@@ -94,10 +96,5 @@ public class NormalCloudEnemy : BaseEnemy
         // wait amount of seconds before firing again
         yield return new WaitForSeconds(fireRate);
         canAttack = true;
-    }
-
-    public void DeathSound()
-    {
-        //deathSound.Play();
     }
 }

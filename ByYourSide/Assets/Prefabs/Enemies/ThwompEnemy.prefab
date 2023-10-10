@@ -151,7 +151,7 @@ MonoBehaviour:
   persueDistance: 17.5
   barrierLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   entity: {fileID: 0}
   shootDistance: 12
   slowDistance: 10
@@ -170,6 +170,8 @@ MonoBehaviour:
   knockbackAmt: 25
   windSpeed: 7.5
   wingGustCD: 3
+  lightningName: BossLightning
+  cloudName: EnemyCloud
   canAttack2: 1
 --- !u!114 &3449346778884855784
 MonoBehaviour:
@@ -225,4 +227,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b0790c517e6de4b94cdf02e9bde90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 300
+  deathName: EnemyDeath

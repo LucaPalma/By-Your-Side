@@ -185,6 +185,19 @@ MonoBehaviour:
   bombwindDamage: 0
   bombwindKnockBack: 0
   bombwindSpeed: 0
+  bolt: {fileID: 0}
+  boltLifeTime: 0
+  boltDamage: 0
+  boltSpeed: 0
+  boltNum: 0
+  spreadRadius: 0
+  projectileNum: 0
+  waveNum: 0
+  shootName: PetShoot
+  tornadoName: PetTornado
+  zoomName: PetZoom
+  shotgunName: PetShotgun
+  ultimateName: PlayerUltimate
 --- !u!114 &4350913617194152338
 MonoBehaviour:
   m_ObjectHideFlags: 0

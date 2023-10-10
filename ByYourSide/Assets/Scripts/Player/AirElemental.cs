@@ -48,6 +48,27 @@ public class AirElemental : Pet
     public float projectileNum;
     public float waveNum;
 
+    [Header("Sounds")]
+    [SerializeField] private string shootName = "PetShoot";
+	private AudioSource shootSound;
+    [SerializeField] private string tornadoName = "PetTornado";
+	private AudioSource tornadoSound;
+    [SerializeField] private string zoomName = "PetZoom";
+	private AudioSource zoomSound;
+    [SerializeField] private string shotgunName = "PetShotgun";
+	private AudioSource shotgunSound;
+    [SerializeField] private string ultimateName = "PlayerUltimate";
+	private AudioSource ultimateSound;
+
+
+    private void Awake()
+	{
+        shootSound = GameObject.Find(shootName).GetComponent<AudioSource>();
+        tornadoSound = GameObject.Find(tornadoName).GetComponent<AudioSource>();
+        zoomSound = GameObject.Find(zoomName).GetComponent<AudioSource>();
+        shotgunSound = GameObject.Find(shotgunName).GetComponent<AudioSource>();
+        ultimateSound = GameObject.Find(ultimateName).GetComponent<AudioSource>();
+	}
 
     public override void Update()
     {
@@ -73,6 +94,7 @@ public class AirElemental : Pet
         projectile.damage = projectileDamage;
         projectile.speed = projectileSpeed;
         projectile.target = projectileTarget;
+        shootSound.Play();
     }
 
     public override void strongAttack()
@@ -91,8 +113,7 @@ public class AirElemental : Pet
         projectile.target = projectileTarget;
         projectile.knockBack = knockbackAmt;
         projectile.knockBackDir = heading;
-
-
+        tornadoSound.Play();
     }
 
     public override void buffAttack()
@@ -101,6 +122,7 @@ public class AirElemental : Pet
         player.moveSpeed += moveSpeedBuff;
         currentMoveSpeedDuration = moveSpeedDuration;
         speedy = true;
+        zoomSound.Play();
     }
 
     public override void fourAttack()
@@ -123,7 +145,7 @@ public class AirElemental : Pet
         projectile.windSpeed = bombwindSpeed;
         projectile.windTarget = projectileTarget;
         
-
+        shootSound.Play();
     }
 
     public override void fiveAttack()
@@ -151,6 +173,7 @@ public class AirElemental : Pet
 
             angle += angleStep;
         }
+        shootSound.Play();
     }
 
     public override void ultAttack()
@@ -189,6 +212,7 @@ public class AirElemental : Pet
 
             angle += angleStep;
         }
+        ultimateSound.Play();
         yield return new WaitForSeconds(1f);
     }
     public IEnumerator UltRoutine()

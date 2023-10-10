@@ -21,6 +21,14 @@ public class BombProjectile : MonoBehaviour
     public float windSpeed;
     public string windTarget;
 
+    [Header("Sounds")]
+    [SerializeField] private string explodeName = "ExplodeQuiet";
+	private AudioSource explodeSound;
+
+    private void Awake()
+	{
+        explodeSound = GameObject.Find(explodeName).GetComponent<AudioSource>();
+	}
 
     public void Start()
     {
@@ -46,6 +54,7 @@ public class BombProjectile : MonoBehaviour
 
     public void Explode()
     {
+        explodeSound.Play();
         var projectile = Instantiate(windProj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
         projectile.lifeTime = windLifeTime;
         projectile.damage = windDamage;

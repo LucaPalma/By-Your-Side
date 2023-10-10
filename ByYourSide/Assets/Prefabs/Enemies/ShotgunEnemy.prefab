@@ -151,7 +151,7 @@ MonoBehaviour:
   persueDistance: 17.5
   barrierLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   entity: {fileID: 4157797558086329849}
   shootDistance: 12
   slowDistance: 10
@@ -163,6 +163,7 @@ MonoBehaviour:
   projectileTarget: Player
   projectileNum: 4
   spreadRadius: 2
+  shootName: EnemyShotgun
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,3 +219,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
+  deathName: EnemyDeath

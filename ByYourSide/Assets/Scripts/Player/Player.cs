@@ -14,6 +14,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public cooldownTimer healthBar;
     Pet pet;
     public Vector3 currentCheckpoint;
+    public Animator anim;
 
 
     //Input Bools
@@ -57,14 +58,32 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public float dodgeDuration;
     float currentdodgeDuration;
     public bool dashInvuln;//Active while player is buffed.
- 
+    public MainCam cam;
 
+    [Header("Sounds")]
+    [SerializeField] private string dodgeName = "PlayerDash";
+	private AudioSource dodgeSound;
+    [SerializeField] private string deathName = "PlayerDeath";
+	private AudioSource deathSound;
+    [SerializeField] private string damageName = "PlayerDamage";
+	private AudioSource damageSound;
+    [SerializeField] private string shieldName = "PlayerShield";
+	private AudioSource shieldSound;
+ 
+    private void Awake()
+	{
+        dodgeSound = GameObject.Find(dodgeName).GetComponent<AudioSource>();
+        deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        damageSound = GameObject.Find(damageName).GetComponent<AudioSource>();
+        shieldSound = GameObject.Find(shieldName).GetComponent<AudioSource>();
+	}
 
     private void Start()
     {
         currentCheckpoint = this.transform.position; //Update first checkpoint to be spawn location
         rb = GetComponent<Rigidbody>();
         pet = FindObjectOfType<Pet>();
+        cam = FindObjectOfType<MainCam>();
 
         //Find Gui
         comboGui = comboGuiObj.GetComponent<cooldownTimer>();
@@ -105,9 +124,11 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         if (rb.velocity.y > 0) { rb.velocity = new Vector3(rb.velocity.x,0,rb.velocity.z); }
 
         //Set player back to checkpoint if they fall off.
-        if (this.transform.position.y < -10)
+        if (this.transform.position.y < -0)
         {
             rb.position = currentCheckpoint;
+            FindObjectOfType<Camera>().transform.position = currentCheckpoint;
+            pet.rb.position = currentCheckpoint;
         }
 
     }
@@ -135,6 +156,61 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         {
             wantToInteract = true;
         }
+
+        //Set animation to walking.
+        if (intentionX != 0 || intentionY != 0)
+        {
+            anim.SetBool("walking", true);
+        }
+        else anim.SetBool("walking", false);
+
+        //Rotate model
+        if (rb.velocity.x > 0)
+        {
+            if (rb.velocity.z > 0)
+            {
+                //Facing UpRight
+                gameObject.transform.rotation = Quaternion.Euler(0,45,0);
+            }
+            else if (rb.velocity.z < 0)
+            {
+                //Facing DownRight
+                gameObject.transform.rotation = Quaternion.Euler(0, 135, 0);
+            }
+            else gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);//Facing Right
+
+        }
+        else if (rb.velocity.x < 0)
+        {
+            if (rb.velocity.z > 0)
+            {
+                //Facing UpLeft
+                gameObject.transform.rotation = Quaternion.Euler(0, -45, 0);
+            }
+            else if (rb.velocity.z < 0)
+            {
+                //Facing DownLeft
+                gameObject.transform.rotation = Quaternion.Euler(0, -135, 0);
+            }
+            else gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);//Facing Left
+
+
+        }
+        else
+        {
+            if (rb.velocity.z > 0)
+            {
+                //Facing Up
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            }
+            else if (rb.velocity.z < 0)
+            {
+                //Facing down
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+        }
+
     }
 
     public void handleAbilities()
@@ -144,6 +220,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             dodge();
             wantToDodge = false;
             dodgeCurrentCD = dodgeMaxCD;
+            dodgeSound.Play();
         }
 
         if (wantToCombo && comboCurrentCD <= 0)
@@ -151,6 +228,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             combo();
             wantToCombo = false;
             comboCurrentCD = comboMaxCD;
+            shieldSound.Play();
         }
 
         //Reset Triggers
@@ -171,7 +249,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     public void dodge()
     {
         this.rb.velocity = this.rb.velocity.normalized * dodgeSpeed;
-
+        cam.cameraSpeed = 0.3f;
         currentdodgeDuration = dodgeDuration;
         dashInvuln = true;
         //Allow player to dodge over gaps
@@ -222,6 +300,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         //Update players velocity based on intention if not dodging.
         if (currentdodgeDuration <= 0)
         {
+            cam.cameraSpeed = 0.1f;
             var newVel = new Vector3((moveSpeed) * intentionX, rb.velocity.y, (moveSpeed) * intentionY);
             rb.velocity = newVel;
             pet.rb.velocity = newVel;
@@ -241,11 +320,13 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             currentHealth -= dmg;
             damageInvulnTimer = damageInvulnTimerMax;
             healthBar.SetHealth(currentHealth);
+            damageSound.Play();
         }
 
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            deathSound.Play();
             die();
         }
     }
@@ -262,6 +343,8 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
 
     public void die()
     {
-        SceneManager.LoadScene(0);
+        currentHealth = maxHealth;
+        rb.position = currentCheckpoint;
+        healthBar.SetHealth(currentHealth);
     }
 }

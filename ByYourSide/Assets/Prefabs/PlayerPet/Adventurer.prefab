@@ -130,7 +130,9 @@ MonoBehaviour:
   normalColour: {fileID: 2100000, guid: 3e80d4dd9b4070c40815175cd855c841, type: 2}
   dodgeColour: {fileID: 2100000, guid: 4d1f4bc3c8e89d848b694d75d91df3a1, type: 2}
   healthBarObj: {fileID: 0}
+  healthBar: {fileID: 0}
   currentCheckpoint: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
   moveSpeed: 10
   maxHealth: 25
   currentHealth: 25
@@ -150,6 +152,11 @@ MonoBehaviour:
   dodgeSpeed: 40
   dodgeDuration: 0.25
   dashInvuln: 0
+  cam: {fileID: 0}
+  dodgeName: PlayerDash
+  deathName: PlayerDeath
+  damageName: PlayerDamage
+  shieldName: PlayerShield
 --- !u!114 &4269339489292734012
 MonoBehaviour:
   m_ObjectHideFlags: 0

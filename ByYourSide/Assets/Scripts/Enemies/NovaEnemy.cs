@@ -32,6 +32,10 @@ public class NovaEnemy : BaseEnemy
     [Header("Shotgun Stats")]
     [SerializeField] private float projectileNum;
 
+    [Header("Sounds")]
+    [SerializeField] private string shootName = "EnemyNova";
+	private AudioSource shootSound;
+
     private void Awake()
 	{
         rb = GetComponent<Rigidbody>();
@@ -43,8 +47,7 @@ public class NovaEnemy : BaseEnemy
 
         oldMoveSpeed = moveSpeed;
         canMove = true;
-        //abilitySound = GameObject.Find(soundName).GetComponent<AudioSource>();
-        //deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
+        shootSound = GameObject.Find(shootName).GetComponent<AudioSource>();
 	}
 
 	protected override void Update()
@@ -72,7 +75,7 @@ public class NovaEnemy : BaseEnemy
             Move();
         }
 
-        if (directionToPlayer.magnitude < slowDistance) //If player is inside slow distance
+        if (directionToPlayer.magnitude < slowDistance && playerInLOS) //If player is inside slow distance
         {
             agent.speed = oldMoveSpeed/10; //Slow speed by 90%
         }
@@ -83,32 +86,11 @@ public class NovaEnemy : BaseEnemy
 	{
         canAttack = false;
 
-        //// Luca's turret Code
-        //var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
-        //projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
-////
-        //projectile.lifeTime = projectileLifeTime;
-        //projectile.damage = projectileDamage;
-        //projectile.speed = projectileSpeed;
-        //projectile.knockback = projectileKnockback;
-        //projectile.target = projectileTarget;
-        //int projectileNum = 12;
+        shootSound.Play();
 
         float radius = 5f;
         float angleStep = 360f / projectileNum;
         float angle = 0f;
-
-        //var projectile2 = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
-        //projectile2.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
-
-        //var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
-        //projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
-
-        //projectile.lifeTime = projectileLifeTime;
-        //projectile.damage = projectileDamage;
-        //projectile.speed = projectileSpeed;
-        //projectile.knockback = projectileKnockback;
-        //projectile.target = projectileTarget;
 
         for (int i = 0; i <= projectileNum; i++) 
         {
@@ -161,9 +143,4 @@ public class NovaEnemy : BaseEnemy
             angle += angleStep;
         }
 	}
-
-    public void DeathSound()
-    {
-        //deathSound.Play();
-    }
 }
