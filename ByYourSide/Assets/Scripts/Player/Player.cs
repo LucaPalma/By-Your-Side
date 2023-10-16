@@ -165,14 +165,14 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         else anim.SetBool("walking", false);
 
         //Rotate model
-        if (rb.velocity.x > 0)
+        if (intentionX > 0)
         {
-            if (rb.velocity.z > 0)
+            if (intentionY > 0)
             {
                 //Facing UpRight
                 gameObject.transform.rotation = Quaternion.Euler(0,45,0);
             }
-            else if (rb.velocity.z < 0)
+            else if (intentionY < 0)
             {
                 //Facing DownRight
                 gameObject.transform.rotation = Quaternion.Euler(0, 135, 0);
@@ -180,14 +180,14 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             else gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);//Facing Right
 
         }
-        else if (rb.velocity.x < 0)
+        else if (intentionX < 0)
         {
-            if (rb.velocity.z > 0)
+            if (intentionY > 0)
             {
                 //Facing UpLeft
                 gameObject.transform.rotation = Quaternion.Euler(0, -45, 0);
             }
-            else if (rb.velocity.z < 0)
+            else if (intentionY < 0)
             {
                 //Facing DownLeft
                 gameObject.transform.rotation = Quaternion.Euler(0, -135, 0);

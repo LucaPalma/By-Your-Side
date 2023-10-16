@@ -24,7 +24,7 @@ public class switchButton : MonoBehaviour
 
     void Update()
     {
-    if (Input.GetKeyDown(KeyCode.E) && !activated)
+    if (Input.GetKeyDown(KeyCode.E) && !activated && !shootable)
         {
         var distanceToPlayer = Mathf.Abs((this.gameObject.transform.position - p.position).magnitude);
         if (distanceToPlayer <= 4)
