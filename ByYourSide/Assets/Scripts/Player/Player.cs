@@ -59,6 +59,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     float currentdodgeDuration;
     public bool dashInvuln;//Active while player is buffed.
     public MainCam cam;
+    public GameObject dodgeShield;
 
     [Header("Sounds")]
     [SerializeField] private string dodgeName = "PlayerDash";
@@ -218,6 +219,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         if (wantToDodge && dodgeCurrentCD <= 0)
         {
             dodge();
+            dodgeShield.SetActive(true);
             wantToDodge = false;
             dodgeCurrentCD = dodgeMaxCD;
             dodgeSound.Play();
@@ -262,7 +264,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         switch (currentPet)
         {
             case "Air":
-                var projectile = Instantiate(windProj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+                var projectile = Instantiate(windProj, this.transform);
                 projectile.lifeTime = windLifeTime;
                 projectile.damage = windDamage;
                 projectile.speed = windSpeed;
@@ -291,6 +293,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         }
         else
         {
+            dodgeShield.SetActive(false);
             this.GetComponent<MeshRenderer>().material = normalColour;
         }
     }
