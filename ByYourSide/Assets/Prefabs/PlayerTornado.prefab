@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 50638ca70400df74e99d6925e6eaa24c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 72.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50638ca70400df74e99d6925e6eaa24c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 72.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50638ca70400df74e99d6925e6eaa24c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 72.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50638ca70400df74e99d6925e6eaa24c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.87494
       objectReference: {fileID: 0}
@@ -54,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c27d8764ef11d584f933fbea1d4bd046, type: 2}
     - target: {fileID: 919132149155446097, guid: 50638ca70400df74e99d6925e6eaa24c, type: 3}
       propertyPath: m_Name
-      value: SpinningTornado
+      value: PlayerTornado
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 50638ca70400df74e99d6925e6eaa24c, type: 3}
       propertyPath: m_Layer
@@ -85,4 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b28e9c02ecfb9f4ebf98ffa639ecca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAmt: 100
+  rotationAmt: 200
