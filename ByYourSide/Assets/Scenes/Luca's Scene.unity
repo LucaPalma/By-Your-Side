@@ -3454,7 +3454,7 @@ Transform:
   m_GameObject: {fileID: 192428184}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.708585, y: 2.879465, z: -80.08977}
+  m_LocalPosition: {x: -0.5799999, y: -16.159166, z: -76.380806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3480,7 +3480,7 @@ Transform:
   - {fileID: 1279710276}
   - {fileID: 192870412}
   - {fileID: 1607774140}
-  m_Father: {fileID: 1783873355}
+  m_Father: {fileID: 2051465602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &192870411
 GameObject:
@@ -30821,7 +30821,6 @@ Transform:
   - {fileID: 451312688}
   - {fileID: 401871134}
   - {fileID: 1820232843}
-  - {fileID: 192428185}
   - {fileID: 802262155}
   - {fileID: 1829945071}
   - {fileID: 103520787}
@@ -34864,7 +34863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051465602}
   m_Layer: 0
-  m_Name: Spike Pits
+  m_Name: Hazzards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34900,6 +34899,7 @@ Transform:
   - {fileID: 1360876165}
   - {fileID: 511692878}
   - {fileID: 2132738388}
+  - {fileID: 192428185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053149644
