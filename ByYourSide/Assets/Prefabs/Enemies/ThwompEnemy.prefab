@@ -164,7 +164,7 @@ MonoBehaviour:
   lightningCD: 4
   projectileNum: 6
   projectileNumChange: 2
-  windProj: {fileID: -8085149368472255863, guid: 2cdad9d3e23d9ac469d58d19dd05d063, type: 3}
+  windProj: {fileID: 3315429720041346011, guid: 2cdad9d3e23d9ac469d58d19dd05d063, type: 3}
   windLifeTime: 3
   windDamage: 2
   knockbackAmt: 25

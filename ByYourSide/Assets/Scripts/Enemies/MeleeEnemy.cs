@@ -9,12 +9,16 @@ public class MeleeEnemy : BaseEnemy
     [SerializeField] protected float dmg = 3;
     [SerializeField] private float pwr = 5;
     [SerializeField] private Animator anim;
+    [SerializeField]
+    private float slowDistance = 10.0f;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         moveSpeed = agent.speed;
+
+        oldMoveSpeed = moveSpeed;
 
         lastSeenPosition = transform.position;
         
@@ -45,6 +49,16 @@ public class MeleeEnemy : BaseEnemy
         {
             Move();
         }
+
+        if (directionToPlayer.magnitude < slowDistance && playerInLOS) //If player is inside slow distance
+        {
+            agent.speed = oldMoveSpeed*1.2f; //increase speed by 20%
+        }
+        else if (directionToPlayer.magnitude < (slowDistance/2) && playerInLOS) //If player is inside slow distance
+        {
+            agent.speed = oldMoveSpeed*1.5f; //increase speed by 50%
+        }
+        else {agent.speed = oldMoveSpeed;} //Reset speed
     }
 
     public override IEnumerator Attack()

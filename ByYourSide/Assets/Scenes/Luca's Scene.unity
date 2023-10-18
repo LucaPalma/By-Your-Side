@@ -4047,7 +4047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.45
+      value: 8.56
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6665,6 +6665,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 450967385}
     m_Modifications:
+    - target: {fileID: -4872434559008968486, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
+      propertyPath: shootDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2984688881901170347, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
       propertyPath: m_Name
       value: ShooterEnemy (2)
@@ -10835,8 +10839,12 @@ PrefabInstance:
       value: 6.636597
       objectReference: {fileID: 0}
     - target: {fileID: 3404311012022131565, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 18.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404311012022131565, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.218586
+      value: 31.2
       objectReference: {fileID: 0}
     - target: {fileID: 3404311012022131565, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10844,7 +10852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3404311012022131565, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.40104
+      value: 26.6
       objectReference: {fileID: 0}
     - target: {fileID: 3404311012022131565, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12323,7 +12331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433190333581276367, guid: 8310ceb019fe5fa4bbca19157a71818f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.338585
+      value: 32.1
       objectReference: {fileID: 0}
     - target: {fileID: 4433190333581276367, guid: 8310ceb019fe5fa4bbca19157a71818f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12331,7 +12339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4433190333581276367, guid: 8310ceb019fe5fa4bbca19157a71818f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.931038
+      value: 28.6
       objectReference: {fileID: 0}
     - target: {fileID: 4433190333581276367, guid: 8310ceb019fe5fa4bbca19157a71818f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13580,6 +13588,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 450967385}
     m_Modifications:
+    - target: {fileID: -4872434559008968486, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
+      propertyPath: shootDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2984688881901170347, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
       propertyPath: m_Name
       value: ShooterEnemy (5)
@@ -14390,6 +14402,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 450967385}
     m_Modifications:
+    - target: {fileID: -4872434559008968486, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
+      propertyPath: shootDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2984688881901170347, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
       propertyPath: m_Name
       value: ShooterEnemy (3)
@@ -15833,7 +15849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.3
+      value: 19.63
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20165,7 +20181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941808858010241600, guid: 168f36e27c751104b808b6dc8467a183, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.9
+      value: 24.9
       objectReference: {fileID: 0}
     - target: {fileID: 3941808858010241600, guid: 168f36e27c751104b808b6dc8467a183, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20173,7 +20189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941808858010241600, guid: 168f36e27c751104b808b6dc8467a183, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33
+      value: 32.2
       objectReference: {fileID: 0}
     - target: {fileID: 3941808858010241600, guid: 168f36e27c751104b808b6dc8467a183, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22952,6 +22968,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 450967385}
     m_Modifications:
+    - target: {fileID: -4872434559008968486, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
+      propertyPath: shootDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2984688881901170347, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
       propertyPath: m_Name
       value: ShooterEnemy (1)
@@ -25355,7 +25375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.1
+      value: -31.99
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28075,6 +28095,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 450967385}
     m_Modifications:
+    - target: {fileID: -4872434559008968486, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
+      propertyPath: shootDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2984688881901170347, guid: 13916a1de06243f47ac4baeef041afb8, type: 3}
       propertyPath: m_Name
       value: ShooterEnemy (4)
@@ -28211,7 +28235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.69
+      value: 6.31
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36771,7 +36795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.14
+      value: -6.94
       objectReference: {fileID: 0}
     - target: {fileID: 2119501690109044734, guid: 9794f837d03d166469c669db68c38234, type: 3}
       propertyPath: m_LocalRotation.w
