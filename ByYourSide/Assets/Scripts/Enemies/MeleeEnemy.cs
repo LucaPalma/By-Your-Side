@@ -8,6 +8,7 @@ public class MeleeEnemy : BaseEnemy
     [SerializeField] private float minDistToPlayer = 0f;
     [SerializeField] protected float dmg = 3;
     [SerializeField] private float pwr = 5;
+    [SerializeField] private Animator anim;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class MeleeEnemy : BaseEnemy
         moveSpeed = agent.speed;
 
         lastSeenPosition = transform.position;
+        
     }
     
 
@@ -30,7 +32,12 @@ public class MeleeEnemy : BaseEnemy
         {
             if (GetDistanceToPlayer() < minDistToPlayer && canAttack)
             {
+                anim.SetBool("attacking", true);
                 StartCoroutine(Attack());
+            }
+            else 
+            {
+                anim.SetBool("attacking", false);
             }
         }
 
