@@ -112,22 +112,22 @@ public class Pet : MonoBehaviour
             wantToShoot = true;
         }
 
-        if (Input.GetKey(KeyCode.Keypad8))
+        if (Input.GetKey(KeyCode.Keypad8) | Input.GetKey(KeyCode.O))
         {
             wantToStrong = true;
         }
 
-        if (Input.GetKey(KeyCode.Keypad9))
+        if (Input.GetKey(KeyCode.Keypad9) | Input.GetKey(KeyCode.P))
         {
             wantToBuff = true;
         }
 
-        if (Input.GetKey(KeyCode.Keypad4))
+        if (Input.GetKey(KeyCode.Keypad4) | Input.GetKey(KeyCode.K))
         {
             wantToFour = true;
         }
 
-        if (Input.GetKey(KeyCode.Keypad5))
+        if (Input.GetKey(KeyCode.Keypad5) | Input.GetKey(KeyCode.L))
         {
             wantToFive = true;
         }
