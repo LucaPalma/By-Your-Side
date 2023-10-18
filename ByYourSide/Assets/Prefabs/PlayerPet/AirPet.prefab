@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 1060700045139946976}
   worldPosition: {x: 0, y: 0, z: 0}
   moveSpeed: 15
   floatDist: 1.5
@@ -158,9 +158,9 @@ MonoBehaviour:
   strongAttackGuiObj: {fileID: 0}
   buffAttackMaxCD: 10
   buffAttackGuiObj: {fileID: 0}
-  fourAttackMaxCD: 15
+  fourAttackMaxCD: 6
   fourAttackGuiObj: {fileID: 0}
-  fiveAttackMaxCD: 20
+  fiveAttackMaxCD: 7
   fiveAttackGuiObj: {fileID: 0}
   ultAttackMaxCD: 60
   ultAttackGuiObj: {fileID: 0}
@@ -176,23 +176,23 @@ MonoBehaviour:
   windSpeed: 2
   moveSpeedBuff: 10
   moveSpeedDuration: 3
-  bomblifeTime: 0
-  bombdamage: 0
+  bomblifeTime: 1
+  bombdamage: 1
   bombknockback: 0
-  bombspeed: 0
-  bombwindProj: {fileID: 0}
-  bombwindLifeTime: 0
-  bombwindDamage: 0
-  bombwindKnockBack: 0
-  bombwindSpeed: 0
-  bolt: {fileID: 0}
-  boltLifeTime: 0
-  boltDamage: 0
-  boltSpeed: 0
-  boltNum: 0
-  spreadRadius: 0
-  projectileNum: 0
-  waveNum: 0
+  bombspeed: 12
+  bombwindProj: {fileID: 6592756250461165350, guid: bdab0610ad3a8c14186e09de99633800, type: 3}
+  bombwindLifeTime: 0.5
+  bombwindDamage: 12
+  bombwindKnockBack: 10
+  bombwindSpeed: 2
+  bolt: {fileID: 3236174623819675649, guid: ae8cd46e91f66e54d88b0dd93837e169, type: 3}
+  boltLifeTime: 0.2
+  boltDamage: 10
+  boltSpeed: 40
+  boltNum: 6
+  spreadRadius: 2
+  projectileNum: 15
+  waveNum: 7
   shootName: PetShoot
   tornadoName: PetTornado
   zoomName: PetZoom

@@ -22,8 +22,12 @@ public class KnockBackProjectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        // This line of code makes it follow the parent
-        transform.position = transform.parent.transform.position;
+        if(transform.parent != null)
+        {
+            // This line of code makes it follow the parent
+            transform.position = transform.parent.transform.position;
+        }
+        
     }
 
     public void FixedUpdate()
