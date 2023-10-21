@@ -7,6 +7,9 @@ public class spinningScript : MonoBehaviour
     Transform t;
     public int rotationAmt = 1;
 
+    //idk why but the pet rotates on a different axis
+    public bool pet = false;
+
     void Start()
     {
         t = GetComponent<Transform>();
@@ -15,6 +18,11 @@ public class spinningScript : MonoBehaviour
 
     void Update()
     {
-        t.Rotate(0, 0, rotationAmt*Time.deltaTime);
+        if (!pet)
+        {
+            t.Rotate(0, 0, rotationAmt * Time.deltaTime);
+        }
+        else t.Rotate(0, rotationAmt * Time.deltaTime, 0);
+
     }
 }
