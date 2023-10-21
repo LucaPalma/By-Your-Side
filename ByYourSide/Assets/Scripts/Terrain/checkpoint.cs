@@ -6,6 +6,16 @@ public class checkpoint : MonoBehaviour
 {
     public float healAmount = 12f;
     public bool alreadyHealed;
+    [Header("Sounds")]
+    [SerializeField] private string checkSound = "CheckpointSet";
+    private AudioSource checkPoint;
+
+    private void Awake()
+    {
+        checkPoint = GameObject.Find(checkSound).GetComponent<AudioSource>();
+    }
+
+
     private void OnTriggerEnter(Collider collision)
     {
         if(collision.tag == "Player")
@@ -15,6 +25,7 @@ public class checkpoint : MonoBehaviour
 
             if (!alreadyHealed)
             {
+                checkPoint.Play();
                 p.currentCheckpoint = new Vector3(transform.position.x, 1.14f, transform.position.z);
                 p.currentHealth = p.currentHealth + healAmount;
                 if (p.currentHealth > p.maxHealth) p.currentHealth = p.maxHealth;

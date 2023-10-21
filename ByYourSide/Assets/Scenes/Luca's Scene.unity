@@ -3004,6 +3004,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 2100000, guid: e82753d0ee09ccd45bfa399659d75df4, type: 2}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &154026950
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3127,6 +3128,7 @@ MonoBehaviour:
   targetObject: {fileID: 238987409}
   switchesRequired: 1
   activated: 0
+  openName: DoorOpen
 --- !u!65 &157986548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5741,6 +5743,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 0}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &285615878
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7094,6 +7097,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 2100000, guid: e82753d0ee09ccd45bfa399659d75df4, type: 2}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &381427566
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7720,6 +7724,7 @@ MonoBehaviour:
   targetObject: {fileID: 576495224}
   switchesRequired: 2
   activated: 0
+  openName: DoorOpen
 --- !u!65 &401871131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8138,6 +8143,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 2100000, guid: e82753d0ee09ccd45bfa399659d75df4, type: 2}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &420161689
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8834,6 +8840,7 @@ MonoBehaviour:
   targetObject: {fileID: 784369807}
   switchesRequired: 2
   activated: 0
+  openName: DoorOpen
 --- !u!65 &451312685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16782,6 +16789,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 2100000, guid: e82753d0ee09ccd45bfa399659d75df4, type: 2}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &918963683
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21235,6 +21243,7 @@ MonoBehaviour:
   targetObject: {fileID: 927465117}
   switchesRequired: 1
   activated: 0
+  openName: DoorOpen
 --- !u!65 &1190824732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23302,6 +23311,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 2100000, guid: e82753d0ee09ccd45bfa399659d75df4, type: 2}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &1304889066
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26644,6 +26654,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 2100000, guid: e82753d0ee09ccd45bfa399659d75df4, type: 2}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &1550911637
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28163,6 +28174,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 0}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &1608698514
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31622,6 +31634,7 @@ MonoBehaviour:
   targetObject: {fileID: 629425976}
   switchesRequired: 3
   activated: 0
+  openName: DoorOpen
 --- !u!65 &1820232840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34617,9 +34630,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5240549430947286029, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
-      propertyPath: m_Volume
-      value: 0.05
+    - target: {fileID: 5094391309140600235, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501394070057925833, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
       propertyPath: m_Name
@@ -36010,6 +36023,7 @@ MonoBehaviour:
   def: {fileID: 2100000, guid: c8811d932f1dfc041be41143967ff57a, type: 2}
   defShootable: {fileID: 0}
   green: {fileID: 2100000, guid: fb406deb54c662143b36b30b30e24af9, type: 2}
+  clickName: ButtonPress
 --- !u!136 &2107612167
 CapsuleCollider:
   m_ObjectHideFlags: 0
