@@ -128,6 +128,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         //Set player back to checkpoint if they fall off.
         if (this.transform.position.y < -0)
         {
+            deathSound.Play();
             rb.position = currentCheckpoint;
             FindObjectOfType<Camera>().transform.position = currentCheckpoint;
             pet.rb.position = currentCheckpoint;
@@ -393,5 +394,12 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         currentHealth = maxHealth;
         rb.position = currentCheckpoint;
         healthBar.SetHealth(currentHealth);
+
+        var allEnemies = FindObjectsOfType<BaseEnemy>();
+
+        foreach(BaseEnemy enemy in allEnemies)
+        {
+           enemy.ResetEnemy();
+        }
     }
 }

@@ -38,6 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 988356015618612612}
+  - {fileID: 6498144692197729889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &797494420699635885
@@ -229,6 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 400
+  maxHealth: 400
+  boss: 1
   deathName: EnemyDeath
 --- !u!1001 &737994344399387247
 PrefabInstance:
@@ -307,4 +310,82 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e8eb6b425ed755f41a4c383dfcc7e738, type: 3}
   m_PrefabInstance: {fileID: 737994344399387247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4201837255194763008
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4157797558086329849}
+    m_Modifications:
+    - target: {fileID: 365951184625827886, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.44169164
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.18954559
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.44169605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.02588
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22547033
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -57.755016
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00012880786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0024623328
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0013810425
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854916253672661970, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+      propertyPath: m_Name
+      value: Boss Fog
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+--- !u!4 &6498144692197729889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6945079024937597281, guid: fd18edca38293bb4bbfab973006a0066, type: 3}
+  m_PrefabInstance: {fileID: 4201837255194763008}
   m_PrefabAsset: {fileID: 0}

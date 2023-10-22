@@ -14,6 +14,8 @@ public class MeleeEnemy : BaseEnemy
 
     private void Awake()
     {
+        DummyHealth = GetComponent<Dummy>();
+        startLocation = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         moveSpeed = agent.speed;

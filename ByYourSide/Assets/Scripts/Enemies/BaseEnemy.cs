@@ -7,6 +7,7 @@ public class BaseEnemy : MonoBehaviour
 {
     //Component Declaration
     protected Rigidbody rb;
+    
 
     //Player Information
     protected Transform player;
@@ -21,7 +22,10 @@ public class BaseEnemy : MonoBehaviour
     protected bool seenPlayer = false; //If enemy has seen player at any point
     public bool canAttack = true;
     public bool canMove = true;  
-    
+
+    //Reset enemy Variables
+    protected Vector3 startLocation;
+    protected Dummy DummyHealth;
 
     //Enemy Values
     [SerializeField] protected float fireRate = 2.0f;
@@ -47,6 +51,8 @@ public class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        DummyHealth = GetComponent<Dummy>();
+        startLocation = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         moveSpeed = agent.speed;
@@ -104,17 +110,6 @@ public class BaseEnemy : MonoBehaviour
             }
         else {playerInLOS = false;}
         
-
-        //RaycastHit hitObject = Physics.Raycast(transform.position, directionToPlayer.normalized, directionToPlayer.magnitude, barrierLayer);
-
-        //playerInLOS = hitObject.collider == null;
-//
-        //// If the player is detected, the corresponding object state is updated.
-        //if (playerInLOS)
-        //{
-        //    seenPlayer = true;
-        //    lastSeenPosition = playerPosition;
-        //}
     }
 
     //Fires a projectile at the player if the player is in line of sight.
@@ -132,31 +127,14 @@ public class BaseEnemy : MonoBehaviour
     public void Move()
     {
         agent.destination = lastSeenPosition;
-        ////If no path exists or the enemy cannot move, exit the function
-        //if (currentPath == null || canMove == false)
-        //{
-        //    return;
-        //}
-        //
-        ////Determines whether or not we have reached the end of the path
-        //if (currentWaypoint >= currentPath.vectorPath.Count)
-        //{
-        //    return;
-        //}
-
-        ////Calculates the direction and force in which to move the enemy
-        //Vector2 direction = ((Vector2)currentPath.vectorPath[currentWaypoint] - rb.position).normalized;
-        //Vector2 force = direction * moveSpeed;
-//
-        //rb.AddForce(force);
-//
-        //float distance = Vector2.Distance(rb.position, currentPath.vectorPath[currentWaypoint]);
-//
-        //if (distance < nextWaypointDistance)
-        //{
-        //    currentWaypoint++;
-        //}
     }
 
-
+    public virtual void ResetEnemy()
+    {
+        transform.position = startLocation;
+        this.gameObject.SetActive(true);
+        //Debug.Log(DummyHealth.health);
+        DummyHealth.resetHealth();
+        
+    }
 }

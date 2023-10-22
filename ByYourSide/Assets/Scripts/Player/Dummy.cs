@@ -7,6 +7,7 @@ public class Dummy : MonoBehaviour, iDamageable
 {
     [Header("Stats")]
     public float health;
+    public float maxHealth;
     public bool boss = false;
 
     [Header("Sounds")]
@@ -32,13 +33,19 @@ public class Dummy : MonoBehaviour, iDamageable
             {
                 SceneManager.LoadScene("WinScreen", LoadSceneMode.Single);
             }
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
     public void handleDamage(float dmg)
     {
         health -= dmg;
+    }
+
+    public void resetHealth()
+    {
+        health = maxHealth;
     }
 
 }

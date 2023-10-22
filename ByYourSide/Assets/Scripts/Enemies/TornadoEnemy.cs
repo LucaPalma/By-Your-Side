@@ -20,6 +20,8 @@ public class TornadoEnemy : BaseEnemy
 
     private void Awake()
     {
+        DummyHealth = GetComponent<Dummy>();
+        startLocation = transform.position;
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
