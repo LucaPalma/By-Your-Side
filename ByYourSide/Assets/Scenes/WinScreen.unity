@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 751836865}
   - component: {fileID: 751836868}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 1420031493}
   - component: {fileID: 1420031496}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,7 +632,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -152.68}
-  m_SizeDelta: {x: 245.4209, y: 85.3705}
+  m_SizeDelta: {x: 252.43, y: 85.3705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420031493
 MonoBehaviour:
@@ -680,14 +680,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1420031496}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GeckoSpaceInvaders
+          m_StringArgument: StartMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1420031494
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 2003246164}
   - component: {fileID: 2003246163}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,7 +1047,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Main Menu
 --- !u!222 &2003246164
 CanvasRenderer:
   m_ObjectHideFlags: 0

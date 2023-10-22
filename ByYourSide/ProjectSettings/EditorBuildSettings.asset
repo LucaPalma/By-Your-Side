@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 71df2b8635918ce458f69d4c662249d0
+  - enabled: 1
+    path: Assets/Scenes/Josh's Scene.unity
+    guid: 565ec7a84bd42c143b204d9f00e2272c
   m_configObjects: {}
