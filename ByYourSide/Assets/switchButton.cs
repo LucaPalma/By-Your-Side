@@ -13,10 +13,14 @@ public class switchButton : MonoBehaviour
     public Material def;
     public Material defShootable;
     public Material green;
-     
+
+    [Header("Sounds")]
+    [SerializeField] private string clickName = "ButtonPress";
+    private AudioSource buttonSound;
 
     private void Start()
     {
+        buttonSound = GameObject.Find(clickName).GetComponent<AudioSource>();
         if (shootable) this.gameObject.GetComponent<MeshRenderer>().material = defShootable;
         p = FindObjectOfType<Player>().GetComponent<Transform>();     
     }
@@ -36,6 +40,7 @@ public class switchButton : MonoBehaviour
 
     void activate()
     {
+        buttonSound.Play();
         if (timedSwitch)
         {
             StartCoroutine("timeOut");

@@ -10,6 +10,7 @@ public class ShooterEnemy : BaseEnemy
     private float shootDistance = 12.0f;
     [SerializeField]
     private float slowDistance = 10.0f;
+    [SerializeField] private Animator anim;
 
 
 
@@ -61,6 +62,16 @@ public class ShooterEnemy : BaseEnemy
         {
             moveSpeed = oldMoveSpeed;
         }
+
+        if (playerInLOS)
+        {
+            anim.SetBool("attacking", true);
+        }
+        else 
+        {
+            anim.SetBool("attacking", false);
+        }
+
         if (canMove)
         {
             Move();

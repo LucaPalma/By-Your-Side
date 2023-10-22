@@ -13,10 +13,7 @@ public class ShotgunEnemy : BaseEnemy
     private float shootDistance = 12.0f;
     [SerializeField]
     private float slowDistance = 10.0f;
-    //[SerializeField] private string soundName;
-	//private AudioSource abilitySound;
-    //[SerializeField] private string deathName;
-	//private AudioSource deathSound;
+    [SerializeField] private Animator anim;
 
 
     [Header("Shooting Stats")]
@@ -73,6 +70,15 @@ public class ShotgunEnemy : BaseEnemy
         if (canMove)
         {
             Move();
+        }
+
+        if (playerInLOS)
+        {
+            anim.SetBool("attacking", true);
+        }
+        else 
+        {
+            anim.SetBool("attacking", false);
         }
 
         if (directionToPlayer.magnitude < slowDistance && playerInLOS) //If player is inside slow distance

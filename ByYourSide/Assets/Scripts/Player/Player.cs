@@ -21,6 +21,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     bool wantToDodge;
     bool wantToCombo;
     bool wantToInteract;
+    string lastDirection = "right";
 
     [Header("Movement Stats")]
     public float moveSpeed;
@@ -166,52 +167,67 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         else anim.SetBool("walking", false);
 
         //Rotate model
-        if (intentionX > 0)
-        {
-            if (intentionY > 0)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)))
+        { 
+            if (intentionX > 0)
             {
-                //Facing UpRight
-                gameObject.transform.rotation = Quaternion.Euler(0,45,0);
+                if (intentionY > 0)
+                {
+                    //Facing UpRight
+                    gameObject.transform.rotation = Quaternion.Euler(0, 45, 0);
+                    lastDirection = "UpRight";
+                }
+                else if (intentionY < 0)
+                {
+                    //Facing DownRight
+                    gameObject.transform.rotation = Quaternion.Euler(0, 135, 0);
+                    lastDirection = "DownRight";
+                }
+                else
+                {
+                    gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);//Facing Right
+                    lastDirection = "Right";
+                }
             }
-            else if (intentionY < 0)
+            else if (intentionX < 0)
             {
-                //Facing DownRight
-                gameObject.transform.rotation = Quaternion.Euler(0, 135, 0);
-            }
-            else gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);//Facing Right
+                if (intentionY > 0)
+                {
+                    //Facing UpLeft
+                    gameObject.transform.rotation = Quaternion.Euler(0, -45, 0);
+                    lastDirection = "UpLeft";
+                }
+                else if (intentionY < 0)
+                {
+                    //Facing DownLeft
+                    gameObject.transform.rotation = Quaternion.Euler(0, -135, 0);
+                    lastDirection = "DownLeft";
+                }
+                else
+                {
+                    gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);//Facing Left
+                    lastDirection = "Left";
+                }
 
+            }
+            else
+            {
+                if (rb.velocity.z > 0)
+                {
+                    //Facing Up
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    lastDirection = "Up";
+
+
+                }
+                else if (rb.velocity.z < 0)
+                {
+                    //Facing down
+                    gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+                    lastDirection = "Down";
+                }
+            }
         }
-        else if (intentionX < 0)
-        {
-            if (intentionY > 0)
-            {
-                //Facing UpLeft
-                gameObject.transform.rotation = Quaternion.Euler(0, -45, 0);
-            }
-            else if (intentionY < 0)
-            {
-                //Facing DownLeft
-                gameObject.transform.rotation = Quaternion.Euler(0, -135, 0);
-            }
-            else gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);//Facing Left
-
-
-        }
-        else
-        {
-            if (rb.velocity.z > 0)
-            {
-                //Facing Up
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            }
-            else if (rb.velocity.z < 0)
-            {
-                //Facing down
-                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
-        }
-
     }
 
     public void handleAbilities()
@@ -250,7 +266,35 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
 
     public void dodge()
     {
-        this.rb.velocity = this.rb.velocity.normalized * dodgeSpeed;
+        switch (lastDirection)
+        {
+            case "DownRight":
+                this.rb.velocity = new Vector3(1, 0, -1) * dodgeSpeed;
+                break;
+            case "UpRight":
+                this.rb.velocity = new Vector3(1, 0, 1) * dodgeSpeed;
+                break;
+            case "Right":
+                this.rb.velocity = new Vector3(1, 0, 0) * dodgeSpeed;
+                break;
+            case "DownLeft":
+                this.rb.velocity = new Vector3(-1, 0, -1) * dodgeSpeed;
+                break;
+            case "UpLeft":
+                this.rb.velocity = new Vector3(-1, 0, 1) * dodgeSpeed;
+                break;
+            case "Left":
+                this.rb.velocity = new Vector3(-1, 0, 0) * dodgeSpeed;
+                break;
+            case "Up":
+                this.rb.velocity = new Vector3(0, 0, 1) * dodgeSpeed;
+                break;
+            case "Down":
+                this.rb.velocity = new Vector3(0, 0, -1) * dodgeSpeed;
+                break;
+
+        }
+
         cam.cameraSpeed = 0.3f;
         currentdodgeDuration = dodgeDuration;
         dashInvuln = true;

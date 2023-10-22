@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: TornadoPetAttack Variant
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: -6478536213147159724, guid: 985a74bdaa0f09a4ca6b98af98376568, type: 3}
+  m_Parent: {fileID: 2100000, guid: eefc91b15fa1f1847abbd2b94895bfab, type: 2}
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON

@@ -11,7 +11,14 @@ public class moveableObject : MonoBehaviour
     int currentSwitches;
 
     public bool activated = false;
+    [Header("Sounds")]
+    [SerializeField] private string openName = "DoorOpen";
+    private AudioSource doorSound;
 
+    private void Awake()
+    {
+        doorSound = GameObject.Find(openName).GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -44,11 +51,13 @@ public class moveableObject : MonoBehaviour
 
     void moveOpen()
     {
+        doorSound.Play();
         this.transform.position = targetLocation;
     }
 
     void moveClose()
     {
+        doorSound.Play();
         activated = false;
         this.transform.position = startingLocation;
     }

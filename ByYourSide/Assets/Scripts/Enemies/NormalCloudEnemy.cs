@@ -13,8 +13,7 @@ public class NormalCloudEnemy : BaseEnemy
     private float shootDistance = 12.0f;
     [SerializeField]
     private float slowDistance = 10.0f;
-
-
+    [SerializeField] private Animator anim;
 
     [Header("Shooting Stats")]
     [SerializeField] private EnemyKnockBackProjectile proj;
@@ -67,6 +66,15 @@ public class NormalCloudEnemy : BaseEnemy
         if (canMove)
         {
             Move();
+        }
+
+        if (playerInLOS)
+        {
+            anim.SetBool("attacking", true);
+        }
+        else 
+        {
+            anim.SetBool("attacking", false);
         }
 
         if (directionToPlayer.magnitude < slowDistance && playerInLOS) //If player is inside slow distance

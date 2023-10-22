@@ -9,6 +9,7 @@ public class RamEnemy : BaseEnemy
     [SerializeField] private float maxDistToPlayer = 1f;
     [SerializeField] protected float dmg = 3;
     [SerializeField] private float pwr = 5;
+    [SerializeField] private Animator anim;
 
     //protected iFrameHealth plrHealth;
     //public GameObject hurtBox;
@@ -42,6 +43,15 @@ public class RamEnemy : BaseEnemy
             if (GetDistanceToPlayer() < maxDistToPlayer && canAttack && !(GetDistanceToPlayer() < minDistToPlayer))
             {
                 StartCoroutine(Attack());
+            }
+            
+            if (GetDistanceToPlayer() < maxDistToPlayer)
+            {
+                anim.SetBool("attacking", true);
+            }
+            else 
+            {
+                anim.SetBool("attacking", false);
             }
         }
 
