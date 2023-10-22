@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Luca's Scene.unity
     guid: 357b2859632b15a4490febe67759e8d2
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 71df2b8635918ce458f69d4c662249d0
   m_configObjects: {}

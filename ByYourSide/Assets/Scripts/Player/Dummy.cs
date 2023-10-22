@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Dummy : MonoBehaviour, iDamageable
 {
     [Header("Stats")]
     public float health;
+    public bool boss = false;
 
     [Header("Sounds")]
     [SerializeField] private string deathName = "EnemyDeath";
@@ -26,6 +28,10 @@ public class Dummy : MonoBehaviour, iDamageable
         if (health <= 0)
         {
             deathSound.Play();
+            if (boss)
+            {
+                SceneManager.LoadScene("WinScreen", LoadSceneMode.Single);
+            }
             Destroy(this.gameObject);
         }
     }
