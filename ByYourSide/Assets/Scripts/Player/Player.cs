@@ -369,6 +369,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
             damageInvulnTimer = damageInvulnTimerMax;
             healthBar.SetHealth(currentHealth);
             damageSound.Play();
+            //die();
         }
 
         if (currentHealth <= 0)
@@ -399,7 +400,9 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
 
         foreach(BaseEnemy enemy in allEnemies)
         {
-           enemy.ResetEnemy();
+            enemy.gameObject.SetActive(true);
+            enemy.ResetEnemy();
+            enemy.gameObject.SetActive(true);
         }
     }
 }

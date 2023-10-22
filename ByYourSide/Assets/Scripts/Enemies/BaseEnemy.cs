@@ -132,9 +132,10 @@ public class BaseEnemy : MonoBehaviour
     public virtual void ResetEnemy()
     {
         transform.position = startLocation;
-        this.gameObject.SetActive(true);
+        
         //Debug.Log(DummyHealth.health);
         DummyHealth.resetHealth();
+        this.gameObject.SetActive(true);
         
     }
 }
