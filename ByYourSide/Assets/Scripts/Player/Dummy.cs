@@ -34,15 +34,15 @@ public class Dummy : MonoBehaviour, iDamageable
                 SceneManager.LoadScene("WinScreen", LoadSceneMode.Single);
             }
             //Destroy(this.gameObject);
-            //this.gameObject.SetActive(false);
-            this.gameObject.transform.position = new Vector3(-390, 20.35167f, -5.01f);
+            this.gameObject.SetActive(false);
+            //this.gameObject.transform.position = new Vector3(-390, 20.35167f, -5.01f);
             //foreach( Transform child in transform )
             //{
             //    child.gameObject.SetActive( false );
             //}
             //this.gameObject.GetComponent<BaseEnemy>().enabled = false;
             //this.gameObject.GetCompsonent<BoxCollider>().enabled = false;
-            health = maxHealth;
+            //health = maxHealth;
         }
         
     }
