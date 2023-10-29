@@ -228,6 +228,8 @@ MonoBehaviour:
   maxHealth: 45
   boss: 0
   deathName: EnemyDeath
+  red: {fileID: 2100000, guid: eb86d528acf299d49837ca2fe233c3a9, type: 2}
+  white: {fileID: -6478536213147159724, guid: d242de39408acee4ba120a408eaa6ced, type: 3}
 --- !u!95 &9148285954891480673
 Animator:
   serializedVersion: 5

@@ -14,7 +14,11 @@ public class Dummy : MonoBehaviour, iDamageable
     [SerializeField] private string deathName = "EnemyDeath";
 	private AudioSource deathSound;
 
-        private void Awake()
+    [Header("Mats")]
+    public Material red;
+    public Material white;
+
+    private void Awake()
 	{
         deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
 	}
@@ -49,12 +53,28 @@ public class Dummy : MonoBehaviour, iDamageable
 
     public void handleDamage(float dmg)
     {
+        if (!boss) StartCoroutine("FlashRed");
         health -= dmg;
     }
 
     public void resetHealth()
     {
         health = maxHealth;
+    }
+
+    IEnumerator FlashRed()
+    {
+        MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer R in renderers)
+        {
+            R.material = red;
+        }
+        yield return new WaitForSeconds(0.2f);
+        foreach (MeshRenderer R in renderers)
+        {
+            R.material = white;
+        }
+
     }
 
 }

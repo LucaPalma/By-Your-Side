@@ -237,6 +237,8 @@ MonoBehaviour:
   maxHealth: 30
   boss: 0
   deathName: EnemyDeath
+  red: {fileID: 2100000, guid: 956889fa54aacfe4f88f55bef8b5445b, type: 2}
+  white: {fileID: 2100000, guid: 956889fa54aacfe4f88f55bef8b5445b, type: 2}
 --- !u!1001 &3379306960326734632
 PrefabInstance:
   m_ObjectHideFlags: 0
