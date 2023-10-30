@@ -15,6 +15,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
     Pet pet;
     public Vector3 currentCheckpoint;
     public Animator anim;
+    public Renderer[] mrs;
 
 
     //Input Bools
@@ -74,6 +75,18 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
  
     private void Awake()
 	{
+        mrs = GetComponentsInChildren<Renderer>();
+        foreach (Renderer R in mrs)
+        {
+            R.material.SetOverrideTag("RenderType", "Transparent");
+            R.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            R.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            R.material.SetInt("_ZWrite", 0);
+            R.material.DisableKeyword("_ALPHATEST_ON");
+            R.material.EnableKeyword("_ALPHABLEND_ON");
+            R.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            R.material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+        }
         dodgeSound = GameObject.Find(dodgeName).GetComponent<AudioSource>();
         deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
         damageSound = GameObject.Find(damageName).GetComponent<AudioSource>();
@@ -335,12 +348,23 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         if (dashInvuln || damageInvulnTimer > 0)
         {
             this.GetComponent<MeshRenderer>().material = dodgeColour;
+            foreach (Renderer R in mrs)
+            {
+                var col = R.material.color;
+                col.a = 0.5f;
+                R.material.color = col;
+            }
         }
         else
         {
             dodgeShield.SetActive(false);
-            this.GetComponent<MeshRenderer>().material = normalColour;
-        }
+            foreach (Renderer R in mrs)
+            {
+                var col = R.material.color;
+                col.a = 1f;
+                R.material.color = col;
+            }
+            }
     }
 
     public void handleMovement()
