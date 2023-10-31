@@ -76,6 +76,14 @@ public class KnockBackProjectile : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
+            else if(collision.GetComponent<SpawnProjectile>() !=null && collision.GetComponent<SpawnProjectile>().target == "Player")
+            {
+                Destroy(collision.gameObject);
+            }
+            else if(collision.GetComponent<TargetProjectile>() !=null && collision.GetComponent<TargetProjectile>().target == "Player")
+            {
+                Destroy(collision.gameObject);
+            }
         }
 
     }

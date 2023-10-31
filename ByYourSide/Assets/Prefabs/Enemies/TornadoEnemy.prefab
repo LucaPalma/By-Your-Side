@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 797494420699635885}
   - component: {fileID: 4587779455514765942}
   - component: {fileID: 5640665163759976072}
-  - component: {fileID: 2047581650575830059}
   - component: {fileID: 8934952008666610430}
   - component: {fileID: -7110092854622745383}
   - component: {fileID: 3449346778884855784}
@@ -108,7 +107,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -116,27 +115,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940697}
---- !u!65 &2047581650575830059
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2984688881901170347}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &8934952008666610430
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -239,6 +217,7 @@ MonoBehaviour:
   deathName: EnemyDeath
   red: {fileID: 2100000, guid: 956889fa54aacfe4f88f55bef8b5445b, type: 2}
   white: {fileID: 2100000, guid: 956889fa54aacfe4f88f55bef8b5445b, type: 2}
+  healthBar: {fileID: 0}
 --- !u!1001 &3379306960326734632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,16 +379,8 @@ PrefabInstance:
       value: 35.612965
       objectReference: {fileID: 0}
     - target: {fileID: 6139461102932517915, guid: 8010d26f0ffa4da418200d377ce10f71, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.043028
-      objectReference: {fileID: 0}
-    - target: {fileID: 6139461102932517915, guid: 8010d26f0ffa4da418200d377ce10f71, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.5814
-      objectReference: {fileID: 0}
-    - target: {fileID: 6139461102932517915, guid: 8010d26f0ffa4da418200d377ce10f71, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.066537
       objectReference: {fileID: 0}
     - target: {fileID: 6139461102932517915, guid: 8010d26f0ffa4da418200d377ce10f71, type: 3}
       propertyPath: m_LocalRotation.w

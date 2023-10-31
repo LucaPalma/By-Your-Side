@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4433347264327599503}
   - component: {fileID: 5756569812458083759}
   - component: {fileID: 7853318645675966572}
-  - component: {fileID: 1667945234165259276}
   - component: {fileID: 4311993807870689037}
-  - component: {fileID: 6592756250461165350}
+  - component: {fileID: -6657741009451418120}
+  - component: {fileID: 426858180848185413}
   m_Layer: 10
-  m_Name: WindBomb 1
+  m_Name: LightningBomb
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.093503, y: 1.7445, z: 3.6653152}
-  m_LocalScale: {x: 0.9451908, y: 0.4995195, z: 0.87280613}
+  m_LocalScale: {x: 1, y: 0.1263054, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6080626571088103280}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7853318645675966572
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f98d8c7ee0be88041b148829e0ab235e, type: 2}
+  - {fileID: 2100000, guid: 48340a4709b1d1045b7f10bb7811de13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1667945234165259276
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6080626571088103280}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.6607574
-  m_Center: {x: 0, y: 0.16075742, z: 0}
 --- !u!54 &4311993807870689037
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6592756250461165350
+--- !u!114 &-6657741009451418120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6080626571088103280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1710ba6d8e4cc334ea9d2eb46e787e3e, type: 3}
+  m_Script: {fileID: 11500000, guid: a8e7b5798b803134eb2a796b67e9ccf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0
@@ -151,10 +130,28 @@ MonoBehaviour:
   knockback: 0
   speed: 0
   target: 
-  windProj: {fileID: 3940677728651586465, guid: 6b203c5c39ed3a74ead6e1d512be3e0d, type: 3}
-  windLifeTime: 0
-  windDamage: 0
-  windKnockBack: 0
-  windSpeed: 0
-  windTarget: 
-  explodeName: ExplodeQuiet
+  origin: {x: 0, y: 0, z: 0}
+  targetSpot: {x: 0, y: 0, z: 0}
+  destinationDirection: {x: 0, y: 0, z: 0}
+  spawnProj: {fileID: 0}
+--- !u!65 &426858180848185413
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080626571088103280}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.99999994, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

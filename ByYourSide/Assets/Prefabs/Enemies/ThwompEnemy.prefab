@@ -111,7 +111,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &8934952008666610430
 NavMeshAgent:
@@ -151,12 +151,12 @@ MonoBehaviour:
   canMove: 1
   fireRate: 2
   moveSpeed: 0
-  persueDistance: 17.5
+  persueDistance: 19
   barrierLayer:
     serializedVersion: 2
     m_Bits: 640
   entity: {fileID: 0}
-  shootDistance: 12
+  shootDistance: 15.5
   slowDistance: 10
   projectileTarget: Player
   healthBar: {fileID: 6528471630122557092}
@@ -166,6 +166,12 @@ MonoBehaviour:
   projectileSpeed: 50
   projectileKnockback: 5
   lightningCD: 4
+  ALTproj: {fileID: -6657741009451418120, guid: d62a54f2b716e914b9477d3908e7f3ad, type: 3}
+  spawnProj: {fileID: 1742327675688745177, guid: 63020ad607f485e4385e4e00533095b0, type: 3}
+  ALTprojectileLifeTime: 20
+  ALTprojectileDamage: 4
+  ALTprojectileSpeed: 25
+  ALTprojectileKnockback: 5
   windProj: {fileID: 3315429720041346011, guid: 2cdad9d3e23d9ac469d58d19dd05d063, type: 3}
   windLifeTime: 3
   windDamage: 2

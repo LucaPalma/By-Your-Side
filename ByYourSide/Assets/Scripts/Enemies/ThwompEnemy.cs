@@ -31,6 +31,14 @@ public class ThwompEnemy : BaseEnemy
     [SerializeField] private float projectileKnockback;
     
     [SerializeField] private float lightningCD;
+
+    [Header("Lightning ALT Stats")]
+    [SerializeField] private SpawnProjectile ALTproj;
+    [SerializeField] private TargetProjectile spawnProj;
+    [SerializeField] private float ALTprojectileLifeTime;
+    [SerializeField] private float ALTprojectileDamage;
+    [SerializeField] private float ALTprojectileSpeed;
+    [SerializeField] private float ALTprojectileKnockback;
     
 
     [Header("Wind Gust Stats")]
@@ -88,7 +96,6 @@ public class ThwompEnemy : BaseEnemy
         // if the enemy can see the player, shoot at them
         if (playerInLOS && directionToPlayer.magnitude <= shootDistance)
         {
-            //moveSpeed = oldMoveSpeed/10;
             if (canAttack)
             {
                 StartCoroutine(Attack());
@@ -145,37 +152,20 @@ public class ThwompEnemy : BaseEnemy
         lightningSound.Play();
         canAttack2 = false;
 
-        if (currentHealth/maxHealth <= 0.4f)
+        if (currentHealth/maxHealth <= 0.5f)
         {
+            yield return new WaitForSeconds(0.5f);
+
+            // wait amount of seconds before firing again
             LightningAttackALT();
+            yield return new WaitForSeconds(lightningCD - 1);
+
         }
         else
         {
-            //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
             yield return new WaitForSeconds(0.5f);
 
-
-            float angleStep = 180f / projectileNum;
-            float angle = 0f;
-            float spreadRadius = 2f;
-            //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
-            //Debug.Log(angle);
-
-            var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
-            projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
-
-            projectile.lifeTime = projectileLifeTime;
-            projectile.damage = projectileDamage;
-            projectile.speed = projectileSpeed;
-            projectile.knockback = projectileKnockback;
-            projectile.target = projectileTarget;
-            projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
-
-
-
-            //Set Projectile's origin and target spot
-            projectile.origin = transform.position;
-            projectile.targetSpot = playerPosition;
+            LightningAttack();
 
             // wait amount of seconds before firing again
             yield return new WaitForSeconds(lightningCD - 1);
@@ -238,6 +228,10 @@ public class ThwompEnemy : BaseEnemy
         projectile.knockback = projectileKnockback;
         projectile.target = projectileTarget;
         projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
+
+        //Set Projectile's origin and target spot
+        projectile.origin = transform.position;
+        projectile.targetSpot = playerPosition;
 	}
 
     public void LightningAttackALT()
@@ -249,15 +243,20 @@ public class ThwompEnemy : BaseEnemy
         //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
         //Debug.Log(angle);
 
-        var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        var projectile = Instantiate(ALTproj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
         projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
 
-        projectile.lifeTime = projectileLifeTime;
-        projectile.damage = projectileDamage;
-        projectile.speed = projectileSpeed;
-        projectile.knockback = projectileKnockback;
+        projectile.lifeTime = ALTprojectileLifeTime;
+        projectile.damage = ALTprojectileDamage;
+        projectile.speed = ALTprojectileSpeed;
+        projectile.knockback = ALTprojectileKnockback;
         projectile.target = projectileTarget;
         projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
+        projectile.spawnProj = spawnProj;
+
+        //Set Projectile's origin and target spot
+        projectile.origin = transform.position;
+        projectile.targetSpot = playerPosition;
 	}
 
     public override void ResetEnemy()
