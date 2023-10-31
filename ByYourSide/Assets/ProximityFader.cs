@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ProximityFader : MonoBehaviour
 {
-    public Player p;
+    private Transform player;
     public float distToP;
     public float currentAlpha;
     public Renderer mr;
+
+    private void Awake()
+	{
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+	}
 
     private void Start()
     {
@@ -16,7 +21,7 @@ public class ProximityFader : MonoBehaviour
 
     void Update()
     {
-        distToP = Vector3.Distance(this.transform.position, p.transform.position);
+        distToP = Vector3.Distance(this.transform.position, player.position);
 
         var col = mr.material.color;
         col.a = 6.8f - distToP;

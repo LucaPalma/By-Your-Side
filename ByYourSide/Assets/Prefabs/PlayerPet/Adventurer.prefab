@@ -136,6 +136,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   currentCheckpoint: {x: 0, y: 0, z: 0}
   anim: {fileID: 3961572247816515167}
+  mrs: []
   moveSpeed: 10
   maxHealth: 30
   currentHealth: 30

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4311993807870689037}
   - component: {fileID: 6592756250461165350}
   m_Layer: 10
-  m_Name: WindBomb
+  m_Name: WindBomb 1
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

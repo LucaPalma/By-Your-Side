@@ -18,6 +18,8 @@ public class Dummy : MonoBehaviour, iDamageable
     public Material red;
     public Material white;
 
+    [SerializeField] public EnemyHealthBar healthBar;
+
     private void Awake()
 	{
         deathSound = GameObject.Find(deathName).GetComponent<AudioSource>();
@@ -53,7 +55,15 @@ public class Dummy : MonoBehaviour, iDamageable
 
     public void handleDamage(float dmg)
     {
-        if (!boss) StartCoroutine("FlashRed");
+        if (!boss) 
+        {
+            StartCoroutine("FlashRed");
+        }
+        else
+        {
+            healthBar.SetHealth2(health);
+        }
+        
         health -= dmg;
     }
 

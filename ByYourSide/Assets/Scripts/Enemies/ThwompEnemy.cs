@@ -17,7 +17,10 @@ public class ThwompEnemy : BaseEnemy
 	//private AudioSource abilitySound;
     //[SerializeField] private string deathName;
 	//private AudioSource deathSound;
+    private float maxHealth;
+    private float currentHealth;
     [SerializeField] private string projectileTarget;
+    [SerializeField] public EnemyHealthBar healthBar;
 
 
     [Header("Lightning Stats")]
@@ -65,6 +68,13 @@ public class ThwompEnemy : BaseEnemy
         lightningSound = GameObject.Find(lightningName).GetComponent<AudioSource>();
         cloudSound = GameObject.Find(cloudName).GetComponent<AudioSource>();
 
+	}
+    private void Start()
+	{
+        maxHealth = this.GetComponent<Dummy>().maxHealth;
+        currentHealth = this.GetComponent<Dummy>().health;
+        healthBar.SetMaxHealth2(maxHealth);
+        healthBar.SetHealth2(maxHealth);
 	}
 
 	protected override void Update()
@@ -218,4 +228,15 @@ public class ThwompEnemy : BaseEnemy
         projectile.target = projectileTarget;
         projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
 	}
+
+    public override void ResetEnemy()
+    {
+        transform.position = startLocation;
+        healthBar.SetHealth2(maxHealth);
+        
+        //Debug.Log(DummyHealth.health);
+        DummyHealth.resetHealth();
+        this.gameObject.SetActive(true);
+        
+    }
 }
