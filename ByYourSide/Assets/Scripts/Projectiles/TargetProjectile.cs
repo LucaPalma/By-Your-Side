@@ -20,7 +20,6 @@ public class TargetProjectile : MonoBehaviour
     private void Awake()
 	{
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //origin = transform.position;
 	}
 
     public void Update()
@@ -36,23 +35,11 @@ public class TargetProjectile : MonoBehaviour
         if (lifeTime <= 0 && pastTarget == false)
         {
             targetLocation = player.position;
-            //player.position;
             //Set velocity to be towards new target and change rotation to fit with this
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-            //GetComponent<Rigidbody>().velocity = new Vector3(0, 20, 0);
             GetComponent<Rigidbody>().AddForce(targetLocation - transform.position);
-            //GetComponent<Rigidbody>().velocity = player.position;
-
-            //find the vector pointing from our position to the target
-		    //_direction = (targetLocation - transform.position).normalized;
-
-		    //create the rotation we need to be in to look at the target
 		    transform.rotation = Quaternion.LookRotation((targetLocation - transform.position).normalized);
 
-            //rotate us over time according to speed until we are in the required rotation
-		    //transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * RotationSpeed);
-
-            //transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity.normalized, Vector3.up);
             pastTarget = true;
             lifeTime = 20;
         }
@@ -60,34 +47,6 @@ public class TargetProjectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        if (pastTarget == true)
-        {
-            
-            //transform.position = Vector3.MoveTowards(transform.position, targetLocation, 0.1f);
-        }
-
-        
-
-        ////If it has reached it's destination and has NOT already been to it's first target
-        //if (destinationDirection.magnitude < 1 && pastTarget == false)
-        //{
-        //    //Set target to be origin
-        //    targetSpot = origin;
-        //    pastTarget = true;
-        //    //Set velocity to be towards new target and change rotation to fit with this
-        //    GetComponent<Rigidbody>().velocity = targetSpot.normalized;
-        //    transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity.normalized, Vector3.up);
-        //}
-        ////If it has reached it's destination and has already been to it's first target
-        //else if (destinationDirection.magnitude < 0.5f && pastTarget)
-        //{
-        //    Destroy(this.gameObject);
-        //}
-
-        
-
-        //GetLocation();
     }
 
     public void GetLocation(Vector3 destination)

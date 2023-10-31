@@ -54,10 +54,6 @@ public class SpawnProjectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        
-
-        //GetLocation();
     }
 
     public void LightningExplode()

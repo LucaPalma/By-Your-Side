@@ -22,11 +22,6 @@ public class BounceProjectile : MonoBehaviour
 
     public void Update()
     {
-        //Display Draw Rays
-        // They point to where the origin and initial target are
-        Debug.DrawRay(transform.position, origin, Color.red);
-        Debug.DrawRay(transform.position, targetSpot, Color.red);
-
         //Get Target Spot
         GetLocation(targetSpot);
         lifeTime -= Time.deltaTime;
@@ -42,18 +37,15 @@ public class BounceProjectile : MonoBehaviour
             targetSpot = origin;
             pastTarget = true;
             //Set velocity to be towards new target and change rotation to fit with this
-            GetComponent<Rigidbody>().velocity = targetSpot.normalized;
-            transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity.normalized, Vector3.up);
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().AddForce(targetSpot - transform.position);
+		    transform.rotation = Quaternion.LookRotation((targetSpot - transform.position).normalized);
         }
         //If it has reached it's destination and has already been to it's first target
         else if (destinationDirection.magnitude < 0.5f && pastTarget)
         {
             Destroy(this.gameObject);
         }
-
-        
-
-        //GetLocation();
     }
 
     public void GetLocation(Vector3 destination)

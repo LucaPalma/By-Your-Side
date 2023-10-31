@@ -161,7 +161,7 @@ MonoBehaviour:
   projectileTarget: Player
   healthBar: {fileID: 6528471630122557092}
   proj: {fileID: 2719571366003594058, guid: 808662cd82b42aa4fb73e20aa32ceadf, type: 3}
-  projectileLifeTime: 20
+  projectileLifeTime: 1
   projectileDamage: 4
   projectileSpeed: 50
   projectileKnockback: 5
