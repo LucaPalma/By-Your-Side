@@ -65,9 +65,14 @@ public class KnockBackProjectile : MonoBehaviour
             }
         }
         //Destroy enemy projectiles that are targeting the player.
-        if (collision.tag == "Projectile" && collision.GetComponent<BasicProjectile>() !=null)
+        if (collision.tag == "Projectile")// && (collision.GetComponent<BasicProjectile>() !=null || collision.GetComponent<BounceProjectile>()))
         {
-            if (collision.GetComponent<BasicProjectile>().target == "Player")
+            
+            if(collision.GetComponent<BasicProjectile>() !=null && collision.GetComponent<BasicProjectile>().target == "Player")
+            {
+                Destroy(collision.gameObject);
+            }
+            else if(collision.GetComponent<BounceProjectile>() !=null && collision.GetComponent<BounceProjectile>().target == "Player")
             {
                 Destroy(collision.gameObject);
             }

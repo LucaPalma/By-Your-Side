@@ -166,17 +166,16 @@ MonoBehaviour:
   projectileSpeed: 50
   projectileKnockback: 5
   lightningCD: 4
-  projectileNum: 6
-  projectileNumChange: 2
   windProj: {fileID: 3315429720041346011, guid: 2cdad9d3e23d9ac469d58d19dd05d063, type: 3}
   windLifeTime: 3
   windDamage: 2
   knockbackAmt: 25
   windSpeed: 7.5
   wingGustCD: 3
+  projectileNum: 6
+  projectileNumChange: 2
   lightningName: BossLightning
   cloudName: EnemyCloud
-  canAttack2: 1
 --- !u!114 &3449346778884855784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +667,7 @@ MonoBehaviour:
   slider: {fileID: 9137453840839596032}
   camera: {fileID: 0}
   target: {fileID: 4157797558086329849}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &737994344399387247
 PrefabInstance:
   m_ObjectHideFlags: 0

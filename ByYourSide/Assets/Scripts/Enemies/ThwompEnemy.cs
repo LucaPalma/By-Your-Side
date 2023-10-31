@@ -31,8 +31,7 @@ public class ThwompEnemy : BaseEnemy
     [SerializeField] private float projectileKnockback;
     
     [SerializeField] private float lightningCD;
-    [SerializeField] private int projectileNum;
-    [SerializeField] private int projectileNumChange;
+    
 
     [Header("Wind Gust Stats")]
     [SerializeField] private EnemyKnockBackProjectile windProj;
@@ -41,6 +40,8 @@ public class ThwompEnemy : BaseEnemy
     [SerializeField] private float knockbackAmt;
     [SerializeField] private float windSpeed;
     [SerializeField] private float wingGustCD;
+    [SerializeField] private int projectileNum;
+    [SerializeField] private int projectileNumChange;
 
     [Header("Sounds")]
     [SerializeField] private string lightningName = "BossLightning";
@@ -50,7 +51,7 @@ public class ThwompEnemy : BaseEnemy
 
 
     private bool attackRotate = false;
-    public bool canAttack2 = true;
+    private bool canAttack2 = true;
 
     private void Awake()
 	{
@@ -72,13 +73,14 @@ public class ThwompEnemy : BaseEnemy
     private void Start()
 	{
         maxHealth = this.GetComponent<Dummy>().maxHealth;
-        currentHealth = this.GetComponent<Dummy>().health;
+        
         healthBar.SetMaxHealth2(maxHealth);
         healthBar.SetHealth2(maxHealth);
 	}
 
 	protected override void Update()
 	{
+        currentHealth = this.GetComponent<Dummy>().health;
         //Update the player's position as they move
         GetPlayerLocation();
         //Determine whether the enemy can see the player
@@ -143,34 +145,43 @@ public class ThwompEnemy : BaseEnemy
         lightningSound.Play();
         canAttack2 = false;
 
-        //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
-        yield return new WaitForSeconds(0.5f);
+        if (currentHealth/maxHealth <= 0.4f)
+        {
+            LightningAttackALT();
+        }
+        else
+        {
+            //Debug.DrawRay(transform.position, directionToPlayer, Color.red);
+            yield return new WaitForSeconds(0.5f);
 
 
-        float angleStep = 180f / projectileNum;
-        float angle = 0f;
-        float spreadRadius = 2f;
-        //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
-        //Debug.Log(angle);
+            float angleStep = 180f / projectileNum;
+            float angle = 0f;
+            float spreadRadius = 2f;
+            //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
+            //Debug.Log(angle);
 
-        var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
-        projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
+            var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+            projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
 
-        projectile.lifeTime = projectileLifeTime;
-        projectile.damage = projectileDamage;
-        projectile.speed = projectileSpeed;
-        projectile.knockback = projectileKnockback;
-        projectile.target = projectileTarget;
-        projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
+            projectile.lifeTime = projectileLifeTime;
+            projectile.damage = projectileDamage;
+            projectile.speed = projectileSpeed;
+            projectile.knockback = projectileKnockback;
+            projectile.target = projectileTarget;
+            projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
 
 
 
-        //Set Projectile's origin and target spot
-        projectile.origin = transform.position;
-        projectile.targetSpot = playerPosition;
+            //Set Projectile's origin and target spot
+            projectile.origin = transform.position;
+            projectile.targetSpot = playerPosition;
+
+            // wait amount of seconds before firing again
+            yield return new WaitForSeconds(lightningCD - 1);
+        }
+
         
-        // wait amount of seconds before firing again
-        yield return new WaitForSeconds(lightningCD - 1);
         canAttack2 = true;
     }
 
@@ -210,6 +221,26 @@ public class ThwompEnemy : BaseEnemy
     }
 
     public void LightningAttack()
+	{
+
+        float angleStep = 180f / projectileNum;
+        float angle = 0f;
+        float spreadRadius = 2f;
+        //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
+        //Debug.Log(angle);
+
+        var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
+        projectile.GetComponent<Rigidbody>().velocity = directionToPlayer * projectileSpeed;
+
+        projectile.lifeTime = projectileLifeTime;
+        projectile.damage = projectileDamage;
+        projectile.speed = projectileSpeed;
+        projectile.knockback = projectileKnockback;
+        projectile.target = projectileTarget;
+        projectile.transform.rotation = Quaternion.LookRotation(projectile.GetComponent<Rigidbody>().velocity.normalized, Vector3.up); //Face current Direction
+	}
+
+    public void LightningAttackALT()
 	{
 
         float angleStep = 180f / projectileNum;
