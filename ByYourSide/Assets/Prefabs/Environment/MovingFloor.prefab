@@ -153,3 +153,4 @@ MonoBehaviour:
   targetObject: {fileID: 5489626965654006509}
   switchesRequired: 2
   activated: 0
+  openName: DoorOpen

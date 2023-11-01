@@ -8,7 +8,7 @@ public class skyscript : MonoBehaviour
 
     void Update()
     {
-        if (state < 500)
+        if (state < 1000)
         {
         transform.position = new Vector3(this.transform.position.x, transform.position.y, transform.position.z + 0.03f);
         }
@@ -16,7 +16,7 @@ public class skyscript : MonoBehaviour
         {
             transform.position = new Vector3(this.transform.position.x, transform.position.y, transform.position.z - 0.03f);
         }
-        if (state > 1000)
+        if (state > 2000)
         {
             state = 0;
         }
