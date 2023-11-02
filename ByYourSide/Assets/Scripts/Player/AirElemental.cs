@@ -173,7 +173,7 @@ public class AirElemental : Pet
 
             angle += angleStep;
         }
-        shootSound.Play();
+        shotgunSound.Play();
     }
 
     public override void ultAttack()

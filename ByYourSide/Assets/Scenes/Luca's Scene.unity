@@ -53600,22 +53600,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5094391309140600235, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f739dfd561faffe4aba1d2fe9720a824, type: 3}
-    - target: {fileID: 5094391309140600235, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5748676867196105560, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
-      propertyPath: m_Volume
-      value: 0.459
-      objectReference: {fileID: 0}
-    - target: {fileID: 5748676867196105560, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1c5dfa65bee243e4f82549092feab1f3, type: 3}
     - target: {fileID: 6501394070057925833, guid: c2ebeef3db43a8b46a5dc3f2c752ceb2, type: 3}
       propertyPath: m_Name
       value: GameManager
