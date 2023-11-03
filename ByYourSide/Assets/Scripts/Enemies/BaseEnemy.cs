@@ -131,7 +131,9 @@ public class BaseEnemy : MonoBehaviour
 
     public virtual void ResetEnemy()
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         transform.position = startLocation;
+        lastSeenPosition = startLocation;
         
         //Debug.Log(DummyHealth.health);
         DummyHealth.resetHealth();
