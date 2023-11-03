@@ -76,10 +76,11 @@ public class RamEnemy : BaseEnemy
         yield return new WaitForSeconds(0.1f);
         //hurtBox.GetComponent<BoxCollider2D>().enabled = true;
         dir.Normalize();
-        var force = dir * pwr * directionToPlayer.magnitude;
+        var force = dir * pwr * (directionToPlayer.magnitude * 0.6f);
         this.rb.AddForce(force, ForceMode.Impulse);
         //abilitySound.Play();
-        yield return new WaitForSeconds(fireRate / 2);
+        yield return new WaitForSeconds(0.5f);
+        rb.velocity = rb.velocity * 0;
         canMove = true;
         yield return new WaitForSeconds(2 / 2);
         //hurtBox.GetComponent<BoxCollider2D>().enabled = false;
