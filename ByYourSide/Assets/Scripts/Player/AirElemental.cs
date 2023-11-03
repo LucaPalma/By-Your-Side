@@ -154,6 +154,7 @@ public class AirElemental : Pet
         float angle = 0f;
         var mousePos = new Vector3(worldPosition.x, player.transform.position.y, worldPosition.z); // Get Mouse Position
         var heading = new Vector3(mousePos.x, this.rb.position.y, mousePos.z) - new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z);//Get direction from pet to mouse.
+        shotgunSound.Play();
 
         for (int i = 0; i <= boltNum; i++)
         {
@@ -173,7 +174,7 @@ public class AirElemental : Pet
 
             angle += angleStep;
         }
-        shotgunSound.Play();
+        
     }
 
     public override void ultAttack()

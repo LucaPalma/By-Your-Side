@@ -62,7 +62,7 @@ public class SpawnProjectile : MonoBehaviour
         float windLifeTime = 0.3f;
         float windSpeed = 35;
         string projectileTarget = "Player";
-        int windDamage = 10;
+        int windDamage = 7;
         int knockbackAmt = 5;
         
 

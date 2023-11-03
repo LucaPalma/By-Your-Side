@@ -166,7 +166,7 @@ MonoBehaviour:
   ultAttackMaxCD: 60
   ultAttackGuiObj: {fileID: 0}
   proj: {fileID: 3236174623819675649, guid: db6407032a98b704a85e314fe54401ba, type: 3}
-  projectileLifeTime: 0.7
+  projectileLifeTime: 0.55
   projectileDamage: 8
   projectileSpeed: 35
   projectileTarget: Enemy
@@ -190,7 +190,7 @@ MonoBehaviour:
   boltLifeTime: 0.2
   boltDamage: 10
   boltSpeed: 40
-  boltNum: 6
+  boltNum: 5
   spreadRadius: 2
   projectileNum: 15
   waveNum: 7

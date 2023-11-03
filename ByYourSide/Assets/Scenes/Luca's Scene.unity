@@ -606,17 +606,6 @@ Transform:
   - {fileID: 2106867722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &24429783 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6528471630122557092, guid: e7da385834db2e64790d910176b97edc, type: 3}
-  m_PrefabInstance: {fileID: 95155070}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf9a73f9102721c47bf131e6e70cf2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &25119986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,10 +2133,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 5195601882353814558, guid: e7da385834db2e64790d910176b97edc, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 24429783}
     - target: {fileID: 5569162790228924792, guid: e7da385834db2e64790d910176b97edc, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -57534,7 +57519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035799696352965776, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.790493
+      value: 24.010494
       objectReference: {fileID: 0}
     - target: {fileID: 6035799696352965776, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57542,7 +57527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035799696352965776, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -154.06255
+      value: -154.03255
       objectReference: {fileID: 0}
     - target: {fileID: 6035799696352965776, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -57592,10 +57577,6 @@ PrefabInstance:
       propertyPath: mainAttackGuiObj
       value: 
       objectReference: {fileID: 1958737781}
-    - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
-      propertyPath: projectileLifeTime
-      value: 0.55
-      objectReference: {fileID: 0}
     - target: {fileID: 6851683904875996492, guid: 0944adedf1286dd4296e16affc5a82eb, type: 3}
       propertyPath: strongAttackGuiObj
       value: 
@@ -57721,7 +57702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407694986404035898, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.3
+      value: 25.52
       objectReference: {fileID: 0}
     - target: {fileID: 6407694986404035898, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57729,7 +57710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407694986404035898, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -156.1
+      value: -156.07
       objectReference: {fileID: 0}
     - target: {fileID: 6407694986404035898, guid: cbabf481d37cd114aaef85f53cf6bdb9, type: 3}
       propertyPath: m_LocalRotation.w

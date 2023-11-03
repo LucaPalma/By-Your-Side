@@ -17,9 +17,22 @@ public class TargetProjectile : MonoBehaviour
     private bool pastTarget = false; 
     private Transform player;
 
+    [Header("Sounds")]
+    [SerializeField] private string lightningName = "BossLightning";
+	private AudioSource lightningSound;
+    [SerializeField] private string lightningQuietName = "BossStrike";
+	private AudioSource lightningQuietSound;
+
     private void Awake()
 	{
+        lightningSound = GameObject.Find(lightningName).GetComponent<AudioSource>();
+        lightningQuietSound = GameObject.Find(lightningQuietName).GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+	}
+
+    private void Start()
+	{
+        lightningSound.Play();
 	}
 
     public void Update()
@@ -34,6 +47,7 @@ public class TargetProjectile : MonoBehaviour
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0 && pastTarget == false)
         {
+            lightningQuietSound.Play();
             targetLocation = player.position;
             //Set velocity to be towards new target and change rotation to fit with this
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);

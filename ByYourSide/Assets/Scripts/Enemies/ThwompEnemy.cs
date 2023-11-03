@@ -54,6 +54,8 @@ public class ThwompEnemy : BaseEnemy
     [Header("Sounds")]
     [SerializeField] private string lightningName = "BossLightning";
 	private AudioSource lightningSound;
+    [SerializeField] private string thunderName = "BossThunder";
+	private AudioSource thunderSound;
     [SerializeField] private string cloudName = "EnemyCloud";
 	private AudioSource cloudSound;
 
@@ -75,6 +77,7 @@ public class ThwompEnemy : BaseEnemy
         oldMoveSpeed = moveSpeed;
         canMove = true;
         lightningSound = GameObject.Find(lightningName).GetComponent<AudioSource>();
+        thunderSound = GameObject.Find(thunderName).GetComponent<AudioSource>();
         cloudSound = GameObject.Find(cloudName).GetComponent<AudioSource>();
 
 	}
@@ -149,7 +152,7 @@ public class ThwompEnemy : BaseEnemy
     public IEnumerator Attack2()
 	{
 
-        lightningSound.Play();
+        thunderSound.Play();
         canAttack2 = false;
 
         if (currentHealth/maxHealth <= 0.5f)

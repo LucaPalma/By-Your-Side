@@ -169,7 +169,7 @@ MonoBehaviour:
   ALTproj: {fileID: -6657741009451418120, guid: d62a54f2b716e914b9477d3908e7f3ad, type: 3}
   spawnProj: {fileID: 1742327675688745177, guid: 63020ad607f485e4385e4e00533095b0, type: 3}
   ALTprojectileLifeTime: 20
-  ALTprojectileDamage: 4
+  ALTprojectileDamage: 12
   ALTprojectileSpeed: 25
   ALTprojectileKnockback: 5
   windProj: {fileID: 3315429720041346011, guid: 2cdad9d3e23d9ac469d58d19dd05d063, type: 3}
@@ -181,6 +181,7 @@ MonoBehaviour:
   projectileNum: 6
   projectileNumChange: 2
   lightningName: BossLightning
+  thunderName: BossThunder
   cloudName: EnemyCloud
 --- !u!114 &3449346778884855784
 MonoBehaviour:
@@ -242,7 +243,7 @@ MonoBehaviour:
   deathName: EnemyDeath
   red: {fileID: 0}
   white: {fileID: 0}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 6528471630122557092}
 --- !u!1 &6577571780110950308
 GameObject:
   m_ObjectHideFlags: 0

@@ -1648,7 +1648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4157797558086329849, guid: 9740e8a50adeb55408914ddc1ae98d7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 171.75584
+      value: 168.95
       objectReference: {fileID: 0}
     - target: {fileID: 4157797558086329849, guid: 9740e8a50adeb55408914ddc1ae98d7b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1656,7 +1656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4157797558086329849, guid: 9740e8a50adeb55408914ddc1ae98d7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 96.051865
+      value: 95.96
       objectReference: {fileID: 0}
     - target: {fileID: 4157797558086329849, guid: 9740e8a50adeb55408914ddc1ae98d7b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17766,7 +17766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2984688881901170347, guid: e7da385834db2e64790d910176b97edc, type: 3}
       propertyPath: m_Name
-      value: ThwompEnemy (1)
+      value: boss
       objectReference: {fileID: 0}
     - target: {fileID: 4157797558086329849, guid: e7da385834db2e64790d910176b97edc, type: 3}
       propertyPath: m_LocalPosition.x
