@@ -20,6 +20,9 @@ public class BounceProjectile : MonoBehaviour
         //origin = transform.position;
 	}
 
+    // Shoot the lightning bolt towards a point, 
+    // if the bolt has reached the point, make it turn around and go back to where
+    // it was created from, then once it has reached that second point, delete it.
     public void Update()
     {
         //Get Target Spot

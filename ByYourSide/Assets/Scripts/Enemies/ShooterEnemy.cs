@@ -53,7 +53,6 @@ public class ShooterEnemy : BaseEnemy
         // if the enemy can see the player, shoot at them
         if (playerInLOS && directionToPlayer.magnitude <= shootDistance)
         {
-            //moveSpeed = oldMoveSpeed/10;
             if (canAttack)
             {
                 StartCoroutine(Attack());
@@ -79,6 +78,7 @@ public class ShooterEnemy : BaseEnemy
             Move();
         }
 
+        // Also if the player is within a range and in line of sight, slow down.
         if (directionToPlayer.magnitude < slowDistance && playerInLOS) //If player is inside slow distance
         {
             agent.speed = oldMoveSpeed/10; //Slow speed by 90%
@@ -86,6 +86,8 @@ public class ShooterEnemy : BaseEnemy
         else {agent.speed = oldMoveSpeed;} //Reset speed
     }
 
+    // This basically just makes a bullet with the correct properties, 
+    // then waits the fire rate time, then makes another bullet again. 
     public override IEnumerator Attack()
 	{
         canAttack = false;

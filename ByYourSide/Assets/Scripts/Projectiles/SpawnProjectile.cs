@@ -40,6 +40,7 @@ public class SpawnProjectile : MonoBehaviour
         //If it has reached it's destination and has NOT already been to it's first target
         if (destinationDirection.magnitude < 1 && pastTarget == false)
         {
+            // Make 5 new projectiles, that all shoot away from the explosion point
             LightningExplode();
             Destroy(this.gameObject);
             //Set target to be origin

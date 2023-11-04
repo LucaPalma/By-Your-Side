@@ -90,6 +90,7 @@ public class NovaEnemy : BaseEnemy
         else {agent.speed = oldMoveSpeed;} //Reset speed
     }
 
+    // Same as shooter enemy, but does several projectiles in 360 degrees
     public override IEnumerator Attack()
 	{
         canAttack = false;

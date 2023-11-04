@@ -90,31 +90,22 @@ public class ShotgunEnemy : BaseEnemy
         else {agent.speed = oldMoveSpeed;} //Reset speed
     }
 
+    // Same as shooter enemy, but does several projectiles in a cone
     public override IEnumerator Attack()
 	{
         canAttack = false;
 
         shootSound.Play();
 
-        //int projectileNum = 6;
-
-        //float spreadRadius = 1f;
         float angleStep = 180f / projectileNum;
         float angle = 0f;
-        //angle = (Vector3.SignedAngle(this.rb.position, transform.forward, directionToPlayer)) + (180f/2);
-        //Debug.Log(angle);
-
-
 
         for (int i = 0; i <= projectileNum; i++) 
         {
-
             float dirX = directionToPlayer.x + Mathf.Sin ((angle * Mathf.PI) / 180) * spreadRadius;
             float dirZ = directionToPlayer.z + Mathf.Cos ((angle * Mathf.PI) / 180) * spreadRadius;
             
-
             Vector3 projectileVector = new Vector3 (dirX, 0, dirZ);
-            //Vector3 projectileMoveDirection = (projectileVector - directionToPlayer).normalized * projectileSpeed;
             Vector3 projectileMoveDirection = (projectileVector).normalized * projectileSpeed;
 
             var projectile = Instantiate(proj, new Vector3(this.rb.position.x, this.rb.position.y, this.rb.position.z), Quaternion.identity);
@@ -129,8 +120,6 @@ public class ShotgunEnemy : BaseEnemy
             angle += angleStep;
         }
         
-
-//
         // wait amount of seconds before firing again
         yield return new WaitForSeconds(fireRate);
         canAttack = true;

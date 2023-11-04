@@ -37,14 +37,11 @@ public class TargetProjectile : MonoBehaviour
 
     public void Update()
     {
-        //Display Draw Rays
-        // They point to where the origin and initial target are
-        Debug.DrawRay(transform.position, origin, Color.red);
-        Debug.DrawRay(transform.position, targetSpot, Color.red);
-
         //Get Target Spot
         GetLocation(targetSpot);
         lifeTime -= Time.deltaTime;
+        // After the bolts have travelled a distance away from their creation point
+        // Change direction to go stright towards the playter's point
         if (lifeTime <= 0 && pastTarget == false)
         {
             lightningQuietSound.Play();
