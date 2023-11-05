@@ -419,6 +419,7 @@ public class Player : MonoBehaviour, iDamageable, iKnockBackable
         currentHealth = maxHealth;
         rb.position = currentCheckpoint;
         healthBar.SetHealth(currentHealth);
+        pet.rb.position = currentCheckpoint;
 
         var allEnemies = FindObjectsOfType<BaseEnemy>();
 
