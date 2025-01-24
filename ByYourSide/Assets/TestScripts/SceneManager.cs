@@ -14,9 +14,9 @@ public class SceneMan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        surface = FindObjectsOfType<NavMeshSurface>();
-        UpdatePath();
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
+        // surface = FindObjectsOfType<NavMeshSurface>();
+        // UpdatePath();
+        // InvokeRepeating("UpdatePath", 0f, 0.5f);
         
     }
 
@@ -29,7 +29,7 @@ public class SceneMan : MonoBehaviour
 
     public void UpdatePath()
     {
-        surfaceSingle.BuildNavMesh();
+        // surfaceSingle.BuildNavMesh();
         //foreach (NavMeshSurface n in surface)
         //{
         //    n.BuildNavMesh();

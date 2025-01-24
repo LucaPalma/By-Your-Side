@@ -1409,6 +1409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (16)
@@ -5773,6 +5777,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (14)
@@ -7155,6 +7163,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (11)
@@ -7933,7 +7945,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: bffeed78b6c2a6e48b69f32e755f7f5f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 334f064ae7e9865498f2373e12b0b501, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &593648382 stripped
 Transform:
@@ -8735,8 +8747,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1815595617}
-  - {fileID: 782986989}
   - {fileID: 2013097178}
   - {fileID: 1710561665}
   - {fileID: 371106284}
@@ -8748,20 +8758,22 @@ Transform:
   - {fileID: 1691976128}
   - {fileID: 1976929095}
   - {fileID: 954667593}
-  - {fileID: 619390967}
   - {fileID: 288738389}
-  - {fileID: 717088446}
   - {fileID: 1148550432}
-  - {fileID: 1084843170}
   - {fileID: 942522790}
   - {fileID: 1372808478}
   - {fileID: 344745711}
-  - {fileID: 1555190182}
-  - {fileID: 24989050}
   - {fileID: 1527673481}
   - {fileID: 1830386135}
   - {fileID: 784185491}
   - {fileID: 492957948}
+  - {fileID: 1815595617}
+  - {fileID: 782986989}
+  - {fileID: 619390967}
+  - {fileID: 717088446}
+  - {fileID: 1084843170}
+  - {fileID: 1555190182}
+  - {fileID: 24989050}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699538687 stripped
@@ -10155,6 +10167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (12)
@@ -10530,6 +10546,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (13)
@@ -16436,6 +16456,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (15)
@@ -18668,6 +18692,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (10)
@@ -26887,6 +26915,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1671397176}
   - {fileID: 963194228}
+  - {fileID: 1426071286}
   - {fileID: 705507995}
   - {fileID: 7196865994794593197}
   - {fileID: 3504066850058113792}
@@ -26896,7 +26925,6 @@ SceneRoots:
   - {fileID: 1100689218}
   - {fileID: 105941643}
   - {fileID: 695663984}
-  - {fileID: 1426071286}
   - {fileID: 450967385}
   - {fileID: 946287910}
   - {fileID: 448758701}

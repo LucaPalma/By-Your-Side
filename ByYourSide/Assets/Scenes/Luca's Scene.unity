@@ -4428,6 +4428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 238987409}
   switchesRequired: 1
+  surfaceSingle: {fileID: 587582457}
   activated: 0
   openName: DoorOpen
 --- !u!65 &157986548
@@ -5710,6 +5711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (6)
@@ -10995,6 +11000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 576495224}
   switchesRequired: 2
+  surfaceSingle: {fileID: 587582457}
   activated: 0
   openName: DoorOpen
 --- !u!65 &401871131
@@ -12482,6 +12488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 784369807}
   switchesRequired: 2
+  surfaceSingle: {fileID: 587582457}
   activated: 0
   openName: DoorOpen
 --- !u!65 &451312685
@@ -16418,6 +16425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (8)
@@ -22267,6 +22278,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 360d04f4e30eda94f80032f4395bae8a, type: 3}
   m_PrefabInstance: {fileID: 795487581}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &796250489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796250490}
+  m_Layer: 0
+  m_Name: NavmeshSurfaces
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796250490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796250489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.685037, y: -131.06349, z: -83.19299}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &797284062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29935,6 +29977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (7)
@@ -31749,6 +31795,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: switchesRequired
       value: 1
       objectReference: {fileID: 0}
@@ -32363,6 +32413,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606297581648076591, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
+      propertyPath: surfaceSingle
+      value: 
+      objectReference: {fileID: 587582457}
     - target: {fileID: 5266786846469885635, guid: 85bc81e0932e40c49bcbcbe5c36eb119, type: 3}
       propertyPath: m_Name
       value: Door (9)
@@ -32729,6 +32783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 927465117}
   switchesRequired: 1
+  surfaceSingle: {fileID: 587582457}
   activated: 0
   openName: DoorOpen
 --- !u!65 &1190824732
@@ -47490,26 +47545,26 @@ Transform:
   - {fileID: 154026953}
   - {fileID: 420161692}
   - {fileID: 381427569}
-  - {fileID: 1133292382}
-  - {fileID: 1123814451}
-  - {fileID: 1692031826}
-  - {fileID: 564751080}
   - {fileID: 1276986280}
   - {fileID: 998867087}
   - {fileID: 146183801}
-  - {fileID: 1778437213}
   - {fileID: 1807636335}
   - {fileID: 1855864285}
-  - {fileID: 1190824735}
-  - {fileID: 157986551}
-  - {fileID: 451312688}
-  - {fileID: 401871134}
-  - {fileID: 1820232843}
   - {fileID: 802262155}
   - {fileID: 1829945071}
   - {fileID: 2146151297}
   - {fileID: 1572252339}
   - {fileID: 103520787}
+  - {fileID: 1133292382}
+  - {fileID: 1123814451}
+  - {fileID: 1692031826}
+  - {fileID: 564751080}
+  - {fileID: 1778437213}
+  - {fileID: 1190824735}
+  - {fileID: 157986551}
+  - {fileID: 451312688}
+  - {fileID: 401871134}
+  - {fileID: 1820232843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1787047566
@@ -48297,6 +48352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 629425976}
   switchesRequired: 3
+  surfaceSingle: {fileID: 587582457}
   activated: 0
   openName: DoorOpen
 --- !u!65 &1820232840
@@ -57864,3 +57920,4 @@ SceneRoots:
   - {fileID: 1348635896}
   - {fileID: 1802137459}
   - {fileID: 598153673}
+  - {fileID: 796250490}

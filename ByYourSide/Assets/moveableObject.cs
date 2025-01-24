@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class moveableObject : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class moveableObject : MonoBehaviour
     public GameObject targetObject;
     public int switchesRequired;
     int currentSwitches;
+    public NavMeshSurface surfaceSingle;
 
     public bool activated = false;
     [Header("Sounds")]
@@ -24,7 +26,6 @@ public class moveableObject : MonoBehaviour
     {
         if (currentSwitches == 0 && !activated)
         {
-            activated = true;
             moveOpen();
         }
         if (currentSwitches > 0 && activated)
@@ -52,7 +53,9 @@ public class moveableObject : MonoBehaviour
     void moveOpen()
     {
         doorSound.Play();
+        activated = true;
         this.transform.position = targetLocation;
+        surfaceSingle.BuildNavMesh();
     }
 
     void moveClose()
@@ -60,7 +63,6 @@ public class moveableObject : MonoBehaviour
         doorSound.Play();
         activated = false;
         this.transform.position = startingLocation;
+        surfaceSingle.BuildNavMesh();
     }
-
-
 }
